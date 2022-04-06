@@ -8,13 +8,16 @@
   js - 脚本、数据交互处理、数据格式化渲染
 
   结构布局（HTML）、样式呈现（CSS）、行为逻辑（JavaScript）
+
+# HTML 超文本标记语言（HyperText Markup Language）
   
-- htm后缀文件
+## htm后缀文件
 
-  window 98及以前的系统、linux系统，后缀名只认3位
-- HTML超文本标记语言（HyperText Markup Language）
+- window 98及以前的系统、linux系统，后缀名只认3位
+## 标签
+### title 标签
+
 - title:30-40字
-
   主页：网站名称  + 主要的关键字/关键词的描述
 
   详情页：详细名称 + 网页名称 + 简介
@@ -30,7 +33,8 @@
   综合title + keywords的简单描述
 - 搜索引擎认知的优先级：
   title > description > keywords
-- em标签（emphasize）加强语气
+### em 标签
+- em 标签（emphasize）加强语气
 - lang="zh-Cn"：简体中文
 - 编码字符集
 
@@ -41,6 +45,7 @@
   UTF-8 unicode 万国码
 - CSS1Compat W3C的标准兼容性模式
 - BackCompat 浏览器的怪异兼容性模式
+### hx 标签
 - h1-h6-->heading 标签 标题标签
 
   独占一行、粗体、大小不一致
@@ -48,14 +53,19 @@
 - p Paragraph标签 段落标签
 
   独占一行
+### i 标签
 - i 标签一般用来加图标
+### del标签
 - del 标签 文字中间的横线
   
   用CSS样式写：style="text-decoration: line-through"
+### ins 标签
 - ins 标签 下划线标签
 
   用CSS样式写：style="text-decoration: underline"
+### address 地址标签
 - address 地址标签
+### div 标签
 - div 标签（division）网页的结构标签 布局标签
 
   容器、盒子，有宽高，写块的
@@ -65,27 +75,18 @@
   &后面加上lt;(less than)、gt;(great than)、nbsp;分别代表< 、> 、空格
 - br 换行
 - hr 分割线
-- img 标签
+### img 标签
    
-  src（source 资源）属性
+- src（source 资源）属性
 
-  网络路径：网上复制的图片地址
+- 网络路径：网上复制的图片地址
 
-  相对路径：先 ../ 跳出当前文件夹，再 / 进入目标文件夹
+- 相对路径：先 ../ 跳出当前文件夹，再 / 进入目标文件夹
 
-  绝对路径：带本地盘的路径，例如：user/yezi/img/login.png
-- 元素：标签+内容
+- 绝对路径：带本地盘的路径，例如：user/yezi/img/login.png
 
-  inline element，即内联元素/行间元素/行内元素，（不独占一行、无法定义宽高）：strong em del ins sup sub span
-
-  block element，即块级元素（独占一行、可以定义宽高）：p h div address ol ul li 
-
-  inline-block element，即内联块级元素（不独占一行、可以定义宽高）：img
-
-  内联元素可以嵌套内联元素，块级元素可以嵌套任何元素
-
-  p标签不可以嵌套div，a标签不可以嵌套a标签
 - anchor 标签（锚点）
+### a 标签
 - a 标签，href(Hypertext reference，超文本引用)，作用如下：
 
   1、超链接标签
@@ -101,16 +102,18 @@
   text-decoration: none; //去掉a标签自带的下划线
 - 注释 可用于检查bug
 
-- sup （superscripted）上标标签
-- sub （subscripted）下标标签
-- span 标签，默认没有任何样式
+### sup （superscripted）上标标签
+### sub （subscripted）下标标签
+### span 标签，默认没有任何样式
 
-  作用：区分其它文本
+- 作用：区分其它文本
+### ol 标签
 - ol （order list）有序列表，三个属性：type、start、reversed(反转)
 
   只有数字才能选择从哪里开始排序
 
   例如：type="1" start="5" 从5开始排序
+### ul 标签
 - ul （unorder list）无序列表
 
   type属性：disc(默认值，圆圈)、square(正方形)、circle(空心圆)
@@ -121,6 +124,7 @@
   dt (definition term)
 
   dd (definition description)
+### table 标签
 - table 表格
 
   caption 标题标签
@@ -148,3 +152,39 @@
   tbody 表格的主体标签，table body
 
   出现的顺序：thead -> tfoot -> tbody 三个标签必须同时出现
+### frameset 设置框架
+- rows 行
+- cols 列
+- 不能写在body里面，有frameset就没有body
+### iframe 内联框架
+- scrolling="yes|no|auto" 滚动条
+- 不需要加载整个页面
+- 不是占用整个页面的结构，只是占用部分
+- 缺点：对搜索引擎不友好、滚动条体系混乱、数据请求等待没有提示，数据传递困难
+### 表单 
+- 用户提交数据，两要素：数据名称 + 数据值
+### from 标签 
+- method 属性的值：method="get|post"
+- action 属性：action="url"，提交数据的后端地址
+- 要配合input标签使用
+### input 标签
+- type 属性：type="text|password"
+- submit 提交
+- maxlength 属性 最大长度
+- 单选按钮
+### label 标签
+- label的for属性值与某一个input的id值相同时，点击label可以聚焦该input输入框
+### MD5
+- 消息摘要的算法
+- 不可逆加密算法，加密后无法再解密，这种方式不需要提供秘钥
+
+### 元素：标签 + 内容
+- inline element，即内联元素/行间元素/行内元素，（不独占一行、无法定义宽高）：strong em del ins sup sub span label
+
+- block element，即块级元素（独占一行、可以定义宽高）：p h div address ol ul li from
+
+- inline-block element，即内联块级元素（不独占一行、可以定义宽高）：img iframe input 
+
+  内联元素可以嵌套内联元素，块级元素可以嵌套任何元素
+
+  p标签不可以嵌套div，a标签不可以嵌套a标签

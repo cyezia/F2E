@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文本 光标</title>
+  <style type="text/css">
+    span {
+      color: purple;
+      text-decoration: underline;
+      cursor:pointer;
+    }
+    
+    /* 分组标签 */
+    button,
+    input[type]{
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <a href="">你好，小叶子</a>
+  <br />
+  <span>你好，小叶子</span>
+  <br />
+  <button disabled="disable">提交</button>
+  <input type="submit" disabled="disabled">
+</body>
+</html>

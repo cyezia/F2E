@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>导航栏</title>
+  <style type="text/css">
+    ul {
+      /* 去掉ul的内外边距样式 */
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .header {
+      width: 100%;
+      min-width: 1024px;
+      height: 60px;
+      background-color: #000;
+    }
+
+    .header ul {
+      height: 100%;
+    }
+
+    .header ul li {
+      float: left;
+      width: 150px;
+      height: 100%;
+    }
+
+    .header ul li a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+      text-align: center;
+      line-height: 60px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .header ul li.active a {
+      color: #FD5;
+      background-color: #333;
+    }
+
+    .header ul li a:hover {
+      color: #FD5;
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <ul>
+      <li class="active">
+        <a href="">首页</a>
+      </li>
+      <li>
+        <a href="">服务号</a>
+      </li>
+      <li>
+        <a href="">微课堂</a>
+      </li>
+      <li>
+        <a href="">系列课</a>
+      </li>
+      <li>
+        <a href="">直播课</a>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

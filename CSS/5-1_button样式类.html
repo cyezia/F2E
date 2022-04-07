@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>button样式类</title>
+  <!-- 
+    要求：
+      1、所有的按钮字体颜色是白色
+      2、所有的按钮无边框
+      3、所有的按钮高度34px
+      4、所有的按钮字体大小14px
+    总类名：btn
+    二级类名：
+      btn-success
+      背景颜色#5cb85c
+
+      btn_warning
+      背景颜色#f0ad4e
+
+      btn-danger
+      背景颜色#d9534f
+  -->
+  <style type="text/css">
+    .btn .btn-success {
+      color: white;
+      border: none;
+      height: 34px;
+      font-size: 14px;
+      background-color: #5cb85c;
+    }
+
+    .btn .btn-warning {
+      color: white;
+      border: none;
+      height: 34px;
+      font-size: 14px;
+      background-color: #f0ad4e;
+    }
+
+    .btn .btn-danger {
+      color: white;
+      border: none;
+      height: 34px;
+      font-size: 14px;
+      background-color: #d9534f
+    }
+    
+    div{
+      float: left;
+      padding: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="btn">
+    <button class="btn-success">登录</button>
+  </div>
+  <div class="btn">
+    <button class="btn-warning">登录</button>
+  </div>
+  <div class="btn">
+    <button class="btn-danger">登录</button>
+  </div>
+    
+</body>
+</html>

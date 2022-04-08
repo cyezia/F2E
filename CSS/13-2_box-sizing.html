@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>boxsizing</title>
+  <style type="text/css">
+    div {
+      box-sizing: border-box;
+      /* 兼容firefix */
+      -moz-box-sizing: border-box;
+      /* 兼容chrome Safari */
+      -webkit-box-sizing: border-box;
+      /* 兼容IE8以下 */
+      -ms-box-sizing: border-box;
+      /* 兼容presto opera */
+      -o-box-sizing: border-box;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;     
+      padding: 30px;
+      border: 10px solid #000;
+    }
+
+    .box .box1 {
+      width: 100%;
+      height: 100%;
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="box1"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>绝对定位中的两栏设计</title>
+  <style type="text/css">
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      overflow-y: hidden;
+    }
+    /* 拖动时，右侧是固定宽度，左侧是自适应宽度 */
+    .left {
+      height: 100%;
+      background-color: green;
+      /* 距离右边的边界有300px */
+      margin-right: 300px;
+    }
+
+    .right {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 300px;
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <div class="left"></div>
+  <div class="right"></div>
+</body>
+</html>

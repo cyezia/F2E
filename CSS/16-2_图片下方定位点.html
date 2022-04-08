@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图片下方定位点</title>
+  <style type="text/css">
+    .slider {
+      position: relative;
+      width: 590px;
+      height: 470px;
+    }
+
+    .slider .indicator {
+      position: absolute;
+      left: 46px;
+      bottom: 20px;
+      width: 152px;
+      height: 18px;
+      /* background-color: yellow; */
+    }
+
+    .slider .indicator .indicator-dot {
+      display: block;
+      float: left;
+      position: relative;
+      width: 18px;
+      height: 18px;
+      float: left;
+      /* border: 1px solid #fff; */
+      box-sizing: border-box;
+    }
+
+    .slider .indicator .indicator-dot.active::before {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 18px;
+      background-color: #fff;
+      opacity: .2;
+      border-radius: 50%;
+    } 
+
+    .slider .indicator .indicator-dot::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 4px;
+      top: 3px;
+      width: 6px;
+      height: 6px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      opacity: .4;
+    }
+
+    .slider .indicator .indicator-dot.active::after {
+      opacity: 1;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="slider">
+    <div class="indicator">
+      <i class="indicator-dot active"></i>
+      <i class="indicator-dot"></i>
+      <i class="indicator-dot"></i>
+      <i class="indicator-dot"></i>
+      <i class="indicator-dot"></i>
+      <i class="indicator-dot"></i>
+      <i class="indicator-dot"></i>
+      <i class="indicator-dot"></i>
+    </div>
+    <img src="img/pop.jpg" alt="">
+  </div>
+</body>
+</html>

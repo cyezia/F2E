@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>定位</title>
+  <style type="text/css">
+    /* 如果box1和box2都是绝对定位（absolute），那就是先来的在下面，后来的在上面（即显示橙色） */
+    .box1 {
+      /* 盒子1设置绝对定位，当前位置会被腾出 */
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: #000;
+    }
+
+    .box2 {
+      /* 盒子2设置相对定位 */
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1"></div>
+  <div class="box2"></div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>清除浮动的最佳方法</title>
+  <style type="text/css">
+    /* 伪元素 */
+    div::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .box {
+      width: 200px;
+      border: 2px solid #000;
+    }
+
+    .box .box1 {
+      float: left;
+      width: 100px;
+      height: 100px;
+      background-color: green;
+    }
+
+    .box .box2 {
+      float: left;
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="box1"></div>
+    <div class="box2"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用ul模拟表格</title>
+  <style type="text/css">
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .table {
+      width: 300px;
+      /* 再设置table的右边框个下边框 */
+      border-right: 1px solid #000;
+      border-bottom: 1px solid #000;
+    }
+
+    /* .table li {
+      float: left;
+      /* margin移动的同时宽高都减少了1，所以要给宽高加1 才能还原 即宽高101 
+      width: 101px;
+      height: 101px;
+      /* 解决中间重合的边框的问题 方法1  让相邻的2条边框重合
+      /* margin-top: -1px;
+      margin-left: -1px; 
+      margin: -1px 0 0 -1px;
+      border: 1px solid #000;
+      box-sizing: border-box;
+    } */
+    /* 方法2 单独设置线 */
+    .table li {
+      float: left;
+      width: 100px;
+      height: 100px;
+      /* 设置每个单元格的上边框和左边框 */
+      border-top: 1px solid #000;
+      border-left: 1px solid #000;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <ul class="table clearfix">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</body>
+</html>

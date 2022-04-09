@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>table</title>
+  <!-- 
+    在style里面写 border:1px solid #000;和在table标签里写border="1"的区别 
+    前者单元格无边框，后者单元格右边框
+  -->
+  <style type="text/css">
+    table {
+      width: 300px;
+      height: 300px;
+      /* border: 1px solid #000; */
+      /* caption-side: top|bottom;  默认值是top*/
+      caption-side: bottom;
+      /* 合并单元格间隙  border-collapse: separation|collapse; 默认值是separation*/
+      border-collapse: collapse;
+      /* 单元格宽度保持一致 table-layout: fixed|automatic;*/
+      table-layout: fixed;
+    }
+
+    /* 中间一列文字居中 方法1 */
+    /* .align-center {
+      text-align: center;
+    } */
+
+    /* 中间一列文字居中 方法2  用伪类*/
+    table tr td:nth-child(2){
+      text-align: center;
+    }
+
+    table tr:nth-child(even){
+      background-color: #eee;
+    }
+
+    table tr:hover {
+      background-color: coral;
+    }
+  </style>
+</head>
+<body>
+  <table border="1">
+    <caption>测试表格</caption>
+    <tr>
+      <td>1</td>
+      <td class="align-center">2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td class="align-center">5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td class="align-center">8</td>
+      <td>9</td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>浮动元素覆盖的问题</title>
+  <style type="text/css">
+    .box1 {
+      float: left;
+      width: 100px;
+      height: 100px;
+      background-color: green;
+    }
+
+    .box2 {
+      /* 解决方法:触发BFC元素 */
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">我是FLOAT</div>
+  <div class="box2">我是可怜的元素我是可怜的元素我是可怜的元素我是可怜的元素我是可怜的元素我是可怜的元素</div>
+</body>
+</html>

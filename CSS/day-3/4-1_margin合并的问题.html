@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>margin合并的问题</title>
+  <style type="text/css">
+    /* 
+      让其变成BFC元素 
+      最好的解决方案：直接设置一个200px即可
+    */
+    .container {
+      overflow: hidden;
+    }
+    
+    .box {
+      width: 100px;
+      height: 100px;
+    }
+
+    .box.box1 {
+      background-color: green;
+      margin-bottom: 100px;
+    }
+
+    .box.box2 {
+      background-color: orange;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box box1"></div>
+  </div>
+  
+  <div class="container">
+    <div class="box box2"></div>
+  </div>
+</body>
+</html>

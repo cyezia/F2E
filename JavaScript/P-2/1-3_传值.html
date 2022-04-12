@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>传值</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // function test(a, b){
+    //   //在实参中传了值的，可以在函数内部修改实参的值
+    //   a = 3;
+    //   console.log(arguments[0]); //输出3
+    // } 
+    // test(1,2);
+
+    function test(a, b){
+      b = 3;
+      console.log(arguments[1]); //输出undefined
+    } 
+    //在实参中没有传入这个值，在函数内部给这个形参赋值是没用的；此时b是undefined 给b赋值没用
+    test(1);
+  </script>
+</body>
+</html>

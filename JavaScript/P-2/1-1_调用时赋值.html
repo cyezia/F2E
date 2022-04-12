@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>调用时赋值</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var aa = Number(window.prompt('a'));
+    var bb = Number(window.prompt('b'));
+
+                //占位 -> 形式上占位，形式参数（形参） 
+    function test(a, b){
+      console.log(a + b);
+    }
+    // 实际参数 实参
+    // 赋值时参数要一一对应
+    test(aa,bb);
+  </script>
+</body>
+</html>

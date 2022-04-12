@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for循环</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 输出100以内的数，跳过可以被7整除和个位数是7的
+    for(i = 0; i <= 100; i++){
+      if(i % 7 == 0 || i %10 == 7){
+        continue;  //跳过当前循环 继续下一个循环
+      }
+      console.log(i);
+    }
+  </script>
+</body>
+</html>

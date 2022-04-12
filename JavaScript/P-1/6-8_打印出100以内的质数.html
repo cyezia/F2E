@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>打印出100以内的质数</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 质数是只能被自身和1整除的数
+    var c = 0;
+    for(var i = 2; i < 100; i++){
+      for(var j = 1; j <= i; j++){
+        if(i % j == 0){
+          c++
+        }
+      }
+      //被整除2次
+      if(c == 2){
+        console.log(i);
+      }
+      c = 0;
+    }
+  </script>
+</body>
+</html>

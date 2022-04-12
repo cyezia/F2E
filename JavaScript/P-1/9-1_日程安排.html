@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日程安排</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var weekday = window.prompt('请输入星期几');
+    var time = window.prompt('请输入上午还是下午');
+
+    switch(weekday){
+      case '星期一':
+        if(time === '上午'){
+          console.log('看书');
+        }else if(time === '下午'){
+          console.log('逛街');
+        }
+        break;
+    }
+  </script>
+</body>
+</html>

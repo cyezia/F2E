@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>789打印出987</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var num = 789;
+    var a =num % 10;
+    var b = (num - a) % 100 /10;
+    var c =(num - a - b * 10) /100;
+
+    console.log("" + a + b + c);
+  </script>
+</body>
+</html>

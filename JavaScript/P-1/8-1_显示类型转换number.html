@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>显示类型转换number</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var a ='123';
+    console.log(typeof(Number(a)) + '-' + Number(a)); // number - 123
+
+    var a = 'true';
+    console.log(typeof(Number(a)) + '-' + Number(a)); //number - NaN
+
+    var a = true;
+    console.log(typeof(Number(a)) + '-' + Number(a)); //number - 1
+
+    var a = false;
+    console.log(typeof(Number(a)) + '-' + Number(a)); //number - 0
+
+    var a = null;
+    console.log(typeof(Number(a)) + '-' + Number(a)); //number - 1
+
+    var a = undefined;
+    console.log(typeof(Number(a)) + '-' + Number(a)); //number - NaN
+
+    var a = 'a';
+    console.log(typeof(Number(a)) + '-' + Number(a)); //number - NaN
+
+    var a = '1a';
+    console.log(typeof(Number(a)) + '-' + Number(a)); //number - NaN
+
+    var a = '3.14';
+    console.log(typeof(Number(a)) + '-' + Number(a)); //number - 3.14
+  </script>
+</body>
+</html>

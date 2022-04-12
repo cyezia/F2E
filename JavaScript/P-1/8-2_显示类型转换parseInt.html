@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>显示类型转换parseInt</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var a ='123';
+    console.log(typeof(parseInt(a)) + '-' + parseInt(a)); // number - 123
+
+    var a = 'true';
+    console.log(typeof(parseInt(a)) + '-' + parseInt(a)); //number - NaN
+
+    var a = true;
+    console.log(typeof(parseInt(a)) + '-' + parseInt(a)); //number - NaN
+
+    var a = false;
+    console.log(typeof(parseInt(a)) + '-' + parseInt(a)); //number - NaN
+
+    var a = null;
+    console.log(typeof(parseInt(a)) + '-' + parseInt(a)); //number - NaN
+
+    var a = undefined;
+    console.log(typeof(parseInt(a)) + '-' + parseInt(a)); //number - NaN
+
+    var a = 'a';
+    console.log(typeof(parseInt(a)) + '-' + parseInt(a)); //number - NaN
+
+    var a = '123a';
+    console.log(typeof(parseInt(a)) + '-' + parseInt(a)); //number - 123
+
+    var a = 'a123';
+    console.log(typeof(parseInt(a)) + '-' + parseInt(a)); //number - NaN
+
+    var a = '3.14';
+    console.log(typeof(parseInt(a)) + '-' + parseInt(a)); //number - 3
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>预编译</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 1、寻找形参和变量声明
+    // 2、实参值赋值给形参
+    // 3、找函数声明、赋值
+    // 4、执行
+    // AO activation object 活跃对象，函数上下文
+    // AO ={
+    //  a:undefined -> 2 ->function a(){} -> 1
+    //  b:undefined 
+    //  d:function d(){}
+    // }
+    // function test(a){
+    //   console.log(a);
+    //   var a = 1;
+    //   console.log(a);
+    //   function a(){}
+    //   console.log(a);
+    //   var b = function(){}
+    //   console.log(b);
+    //   function d(){}
+    // }
+    // test(2);
+
+    function test(a, b){
+      console.log(a); //输出1 在下面的a赋值前打印的
+      c = 0;
+      var c;
+      a = 5;
+      b = 6;
+      console.log(b); //输出6
+      function b(){} 
+      function d(){}
+      console.log(b); //输出6
+    }
+    test(1)
+    // AO ={
+    //  a: undefined -> 1 -> 5
+    //  b: undefined -> function b(){} -> 6
+    //  c: undefined -> 0
+    //  d: function d(){}
+    // 
+    //     
+    // }
+  </script>
+</body>
+</html>

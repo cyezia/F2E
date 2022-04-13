@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>初始化参数</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 方法1
+    // // 初始化参数直接在形参上给值
+    // // es6的写法 
+    // function test(a = 1, b = 2){
+    //   console.log(a,b);
+    // } 
+    // // 给b的值改成4 a值不变，因为默认选择不是undefined的参数
+    // test(undefined, 4);
+
+    // 方法2
+    // function test(a, b){
+    //   // 曲线救国  如果不存在就返回 || 右侧的值
+    //   var a = arguments[0] || 1;
+    //   var b = arguments[1] || 2;
+    //   console.log(a, b);
+    // }
+    // test(6,7);
+
+    // 方法3
+    // 三元运算
+    // 如果不等于undefined就返回arguments[0],如果是undefined就返回1
+    function test(a, b){
+      var a = typeof(arguments[0]) !== 'undefined' ? arguments[0] : 1;
+      var b = typeof(arguments[1]) !== 'undefined' ? arguments[1] : 2;
+      console.log(a, b);
+    }
+    test();
+  </script>
+</body>
+</html>

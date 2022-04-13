@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>其它</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // typeof(a) --'undefined'
+    // -true -- -1
+    // +undefined -- NaN
+    // 通过了
+    if(typeof(a) && (-true) + (+undefined) + ''){
+      console.log('通过了');
+    }else{
+      console.log('没通过');
+    }
+
+    //通过了
+    // 1+15===16
+    if(1 + 5 * '3' === 16){
+      console.log('通过了');
+    }else{
+      console.log('没通过');
+    }
+
+    // ||运算是假往后走
+    // !!' '  是真 
+    // !!''   是假
+    // !!false 是假
+    // 1 + 0 - 0 = 1
+    console.log(!!' '+ !!'' -!!false || '未通过');  // 打印出1
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>预编译</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 最后打印出来的是1
+    // GO global object 全局上下文
+    // 1、找变量
+    // 2、找函数声明
+    // 3、执行
+    // GO = {
+    //   a: undefined -> function a(){} -> 1
+    // }
+    // GO === window
+
+    // var a = 1;
+    // function a(){
+    //   console.log(2);
+    // }
+    // console.log(1);
+
+
+    // 打印出 f a(){} undefined
+    // Go = {
+    //  a: undefined -> function a (){}
+    //  b: undefined
+    // }
+    // console.log(a, b);
+    // function a(){}
+    // var b =function(){}  //表达式是在后面赋值的
+
+
+    // 打印结果1 
+    // function test(){
+    //   var a = b = 1;
+    // }
+    // GO = {
+    //  b: 1
+    // }
+    // AO = {
+    //  a: undefined -> 1
+    // }
+
+
+    // f a(a){} f a(){} 2 5 
+    var b = 3;
+    console.log(a);
+    function a(a){
+      console.log(a);
+      var a = 2;
+      console.log(a);
+      function a(){}
+      var b = 5;
+      console.log(b);
+    }
+    a(1);
+    
+    // GO = {
+    //  b: undefined -> 3 
+    //  a: undefined -> function a(){...} -> 2 -> function a(){}
+    //       
+    // 
+    // }
+
+    // AO = {
+    //  a: undefined -> 1 -> function a() -> 2
+    //  b: undefined -> 5
+    // 
+    // 
+    //       
+    // }
+  </script> 
+</body>
+</html>

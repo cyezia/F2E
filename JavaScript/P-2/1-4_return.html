@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>return</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // function test(name){
+    //   if(!name){
+    //     return '您没有填写姓名';
+    //   }
+    //   return name;
+    // }
+    // console.log(test());
+    function test(name){
+      // 是真(test里面有name值)就返回name值,是假就往后走返回 您没有填写姓名
+      // undefined null NaN "" 0 false
+      return name || '您没有填写姓名';
+    }
+    console.log(test());
+  </script>
+</body>
+</html>

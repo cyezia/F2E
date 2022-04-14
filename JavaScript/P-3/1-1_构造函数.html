@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>构造函数</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function Teacher(){
+      this.name = '张三';
+      this.sex = '男士';
+      this.weight = 120;
+      this.smoke = function(){
+        this.weight--;
+        console.log(this.weight);
+      }
+      this.eat = function(){
+        this.weight++;
+        console.log(this.weight);
+      }
+    }
+    // 当new了之后才会存在this
+    var teacher1 = new Teacher();
+    var teacher2 = new Teacher();
+
+    teacher1.smoke();
+    teacher1.smoke();
+    console.log(teacher2.weight);
+    // 不会影响teacher2
+    // teacher1.name = '李四';
+    // console.log(teacher1, teacher2);
+  </script>
+</body>
+</html>

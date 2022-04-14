@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>传参</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 方法1
+    // function Teacher(name, sex, weight){
+    //   this.name = name;
+    //   this.sex = sex;
+    //   this.weight = weight;
+    //   this.smoke = function(){
+    //     this.weight--;
+    //     console.log(this.weight);
+    //   }
+    //   this.eat = function(){
+    //     this.weight++;
+    //     console.log(this.weight);
+    //   }
+    // }
+    // // 当new了之后才会存在this
+    // var t1 = new Teacher('张三', '男', '120');
+    // var t2 = new Teacher('李四', '女', '98');
+
+    // console.log(t1);
+    // console.log(t2);
+    // teacher1.smoke();
+    // teacher1.smoke();
+    // console.log(teacher2.weight);
+    // 不会影响teacher2
+    // teacher1.name = '李四';
+    // console.log(teacher1, teacher2);
+
+
+
+    // 简写 opt option 选项 设置项
+    function Teacher(opt){
+      this.name = opt.name;
+      this.sex = opt.sex;
+      this.weight = opt.weight;
+      this.smoke = function(){
+        this.weight--;
+        console.log(this.weight);
+      }
+      this.eat = function(){
+        this.weight++;
+        console.log(this.weight);
+      }
+    }
+    // 当new了之后才会存在this
+    var t1 = new Teacher({
+      name: '张三', 
+      sex: '男', 
+      weight: '120'
+    });
+    var t2 = new Teacher({
+      name: '李四', 
+      sex: '女', 
+      weight: '98'
+    });
+
+    console.log(t1);
+    console.log(t2);
+  </script>
+</body>
+</html>

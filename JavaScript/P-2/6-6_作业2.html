@@ -11,6 +11,66 @@
     // 一个班级，学生名保存在一个数组里，两个方法写在函数的一个对象中
     // 第一个方法是加入班级，第二个方法是离开班级
     // 每次加入或离开，都需要打印新的学生名单
+
+    // 方法1
+    // function myClass(){
+    //   var students = [];
+
+    //   var operations = {
+    //     join: function(name){
+    //       students.push(name);
+    //       console.log(students);
+    //     },
+    //     leave: function(name){
+    //       for(var i = 0; i < students.length; i++){
+    //         // 把每一项缓存到item中，优化for循环性能
+    //         var item = students[i];
+    //         if(item === name){
+    //           students.splice(i, 1);
+    //         }
+    //       }
+    //       console.log(students);
+    //     }
+    //   }
+    //   return operations;
+    // }
+    // var obj = myClass();
+    // obj.join('张三');
+    // obj.join('李四');
+    // obj.join('王五');
+    // obj.leave('李四');
+
+    // 方法2 
+    function myClass(){
+      var students = [];
+
+      var operations = {
+        join: function(name){
+          students.push(name);
+          console.log(students);
+        },
+        leave: function(name){
+          // for(var i = 0; i < students.length; i++){
+          //   // 把每一项缓存到item中，优化for循环性能
+          //   var item = students[i];
+          //   if(item === name){
+          //     students.splice(i, 1);
+          //   }
+          // }
+          var idx = students.indexOf(name);
+          if(idx !== -1){
+            students.splice(idx, 1);
+          }
+          console.log(students);
+        }
+      }
+      return operations;
+    }
+    var obj = myClass();
+    obj.join('张三');
+    obj.join('李四');
+    obj.join('王五');
+    obj.leave('李四');
   </script>
 </body>
 </html>

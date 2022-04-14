@@ -9,7 +9,20 @@
 <body>
   <script type="text/javascript">
     // 累加器 初始值0 执行一次函数打印增加1
-    
+    function test(){
+      var num = 0;
+      function add(){
+        // num++ 先打印num 再++
+        // ++num 先++ 在打印num
+        console.log(++num);
+      }
+      return add;
+    }
+    var add = test();
+    add();
+    add();
+    add();
+    add();
   </script>
 </body>
 </html>

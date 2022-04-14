@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>出勤</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var attendance = {
+      students: [],
+      total: 6,
+      join: function(name){
+        this.students.push(name);
+        // 判断人是否到齐
+        if(this.students.length === this.total){
+          console.log(name + '到课，学生已到齐');
+        }else{
+          console.log(name + '到课，学生未到齐');
+        }
+      },
+      leave: function(name){
+        // splice（a, b） 
+        // 第一个参数：从第几位开始
+        // 第二个参数：删除几项
+        // arr.splice();
+
+        // 先判断数组里有无该值
+        var idx = this.students.indexOf(name);
+        if(idx !== -1){
+          this.students.splice(idx, 1);
+        }
+        console.log(name + '早退');
+        console.log(this.students);
+      },
+      classOver: function(){
+        this.students = [];
+        console.log('已下课');
+      }
+    }
+    attendance.join('张三');
+    attendance.join('李四');
+    attendance.join('王五');
+    attendance.join('李七');
+    attendance.join('孙一');
+    attendance.join('吴六');
+    attendance.leave('李四');
+    attendance.classOver();
+  </script>
+</body>
+</html>

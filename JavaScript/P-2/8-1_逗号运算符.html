@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>逗号运算符</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 会被当成表达式，不会报错
+    // ,是一种运算符 返回所有,最后的一个值
+    function test5(a){
+
+    }(6, 5);
+
+    var num1 = (2 - 1, 4 + 5, 22 + 1);
+    console.log(num1);  // 23
+  </script>
+</body>
+</html>

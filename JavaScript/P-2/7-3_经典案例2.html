@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>经典案例2</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    // 要求：打印出0-9
+
+    // 方法1
+    function test(){
+      var arr = [];
+
+      for(var i = 0; i < 10; i++){
+        // 立即执行函数 循环完就执行 
+        arr[i] = (function(){
+          document.write(i + ' ');
+        }());
+      }
+    }
+    test();
+
+    // 方法2
+    function test2(){
+      var arr2 = [];
+
+      for(var i = 0; i < 10; i++){
+        // 立即执行函数 循环完就执行 
+        arr2[i] = function(num){
+          document.write(num + ' ');
+        }
+      }
+      return arr2;
+    }
+    var myArr2 = test2();
+    for(var j = 0; j < 10; j++){
+      myArr2[j](j);
+    }
+
+    // 方法3（最常用的）通过立即执行函数  把每一次循环的i保存下来
+    function test3(){
+      var arr3 = [];
+
+      for(var i = 0; i < 10; i++){
+        // 立即执行函数 给一个形参j 每次循环的时候把实参i传进去
+        (function(j){
+          arr3[j] = function(){
+          document.write(j + ' '); //每次循环的时候此处的j也会替换成实参i的值
+        }
+        }(i));
+      }
+      return arr3;
+    }
+    var myArr3 = test3();
+    for(var j = 0; j < 10; j++){
+      myArr3[j]();
+    }
+  </script>
+</body>
+</html>

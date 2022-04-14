@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>经典案例</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function test(){
+      var arr = [];
+
+      for(var i = 0; i < 10; i++){
+        // 循环了10次，把数组的每一项都保存为新的匿名函数
+        arr[i] = function(){
+          document.write(i + ' ');
+        }
+      }
+      // 当i = 10时结束，返回了10个匿名函数
+      // 形成了闭包
+      // 此时test [[scope]] - > AO -> i = 10
+      return arr;
+    }
+    var myArr = test();
+
+    // 循环myArr这个数组时，实际上拿到的是最后一次i的值（i = 10）
+    // 联系AO说
+    for(var j = 0; j < 10; j++){
+      myArr[j]();
+    }
+    console.log(myArr); // 10 10 10 10 10 10 10 10 10 10
+  </script>
+</body>
+</html>

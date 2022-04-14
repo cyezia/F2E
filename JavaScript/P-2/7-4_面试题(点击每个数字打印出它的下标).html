@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>面试题（点击每个数字的时候，输出它的下标）</title>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+  <script type="text/javascript">
+    // 获取到li
+    var oLi =  document.querySelectorAll('li');
+    // console.log(oLi);
+    // 循环绑定点击事件
+    for(var i = 0; i < oLi.length; i++){
+      // 此处形成了闭包 所以每次点击打印出来的都是5
+      // oLi[i].onclick = function(){
+      //   console.log(i);
+      // }
+
+      // 用立即执行函数解决
+      (function(j){
+        oLi[j].onclick = function(){
+          console.log(j);
+        }
+      }(i));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>立即执行函数</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 自动执行，执行完成以后立即释放
+    // 立即执行函数 - 初始化函数
+
+    //此处声明一个num接收返回值
+    var num = (function(a, b){
+      return a + b;
+    }(2, 4));
+    console.log(num); //6
+
+    var test = function(){
+      console.log(1); 
+    }
+    console.log(test);
+
+    // 侧面证明了立即执行函数执行完立即释放了
+    var test1 = function(){
+      console.log(2); // 2
+    }();
+    console.log(test1); // undefined
+
+    + function test3(){
+      console.log(3);
+    }(); // 3
+
+
+    // 会被当成表达式，不会报错
+    // ,是一种运算符 返回所有,最后的一个值
+    function test5(a){
+
+    }(6, 5);
+
+    var num1 = (2 - 1, 4 + 5, 22 + 1);
+    console.log(num1);  // 23
+  </script>
+</body>
+</html>

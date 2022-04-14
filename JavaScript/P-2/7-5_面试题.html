@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>面试题</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // ,逗号运算符返回,后面的
+    // 此处是一个逗号分割了2个函数 返回后面一个函数
+    var fn = (
+      
+      function test1(){
+        return 1;
+      },
+    
+      function test2(){
+        return '2';  
+      }
+    )();
+    console.log(typeof(fn)); //返回,后的test2函数  string
+
+
+
+    var a = 10;
+
+    // (function b(){}) 加了（）的函数是表达式 表达式忽略名字 b被忽略不存在 所以typeof(b) = undefined
+    if(function b(){}){
+      a += typeof(b);
+    }
+    console.log(a); // 10undefined
+  </script>
+</body>
+</html>

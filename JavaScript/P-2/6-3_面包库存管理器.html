@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>面包库存管理器</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function breadMgr(num){
+      // var breadNum = num || 10;
+      var breadNum = arguments[0] || 10;
+
+      function supply(){
+        breadNum += 10;
+        console.log(breadNum);
+      }
+      function sale(){
+        breadNum--;
+        console.log(breadNum);
+      }
+      return[supply, sale];
+    }
+    var breadMgr = breadMgr();
+    breadMgr[0]();
+    breadMgr[1]();
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>过程实例</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function a(){
+      function b(){
+        function c(){
+
+        }
+        c();
+      }
+      b();
+    }
+    a();
+    // 当外层执行的时候，内层被定义，当内层被执行的时候，内内层被定义
+    // a定义： a.[[scope]] -> 0 : GO
+    // a执行： a.[[scope]] -> 0 : a -> AO
+    //                       1 : GO
+    // b定义： b.[[scope]] -> 0 : a -> AO
+    //                       1 : GO
+    // b执行： b.[[scope]] -> 0 : b -> AO
+    //                       1 : a -> AO
+    //                       2 : GO
+    // c定义： c.[[scope]] -> 0 : b -> AO
+    //                       1 : a -> AO
+    //                       2 : GO
+    // c执行： c.[[scope]] -> 0 : c -> AO
+    //                       1 : b -> AO
+    //                       2 : a -> AO
+    //                       3 : GO
+    // c结束： c.[[scope]] -> 0 : b -> AO
+    //                       1 : a -> AO
+    //                       2 : GO
+    // b结束： b.[[scope]] -> 0 : a -> AO
+    //                       1 : GO
+    //        c.[[scope]] 删除
+    // a结束： a.[[scope]] -> 0 : GO
+    //        b.[[scope]] 删除
+
+  </script>
+</body>
+</html>

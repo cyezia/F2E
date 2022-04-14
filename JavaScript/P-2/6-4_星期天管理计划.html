@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>星期天管理计划</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function sunSched(){
+      var sunSched = '';
+
+      // 写法1
+      // function setSched(thing){
+      //   sunSched = thing;
+      // }
+      // function showSched(){
+      //   console.log("My schedule on sunday is " 
+      //     + sunSched);
+      // }
+      // return [setSched, showSched];
+
+
+      // 对象里面可以写属性，也可以写方法
+      // var obj = {
+      //   name: '',
+      //   eating: function(){
+      // 
+      //   }
+      // }
+      // 写法2 定义一个对象，在里面写对象的方法 
+      var operation = {
+        setSched: function(thing){
+          sunSched = thing;
+        },
+        showSched: function(){
+          console.log("My schedule on sunday is " 
+          + sunSched);
+        }
+      }
+      return operation;
+    }
+    var sunSched = sunSched('studying');
+    sunSched.setSched();
+    sunSched.showSched();
+
+    
+  </script>
+</body>
+</html>

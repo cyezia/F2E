@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>题3</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var x = 1,
+        y = z =0;
+    
+    function add(n){
+      return n = n + 1;
+    }
+    y = add(x);
+
+    // 其实都是执行的return n = n + 3,同名函数覆盖了前面的
+    function add(n){
+      return n = n + 3;
+    }
+    z = add(x);
+
+    console.log(x, y, z); // 1 4 4
+    // GO = {
+    //  x: 1
+    //  y: 0
+    //  z: 0
+    //  add: function add(n) {return n = n + 3}，
+    // 同名函数：先看到 function add(n) {return n = n + 1}，但是后面的function add(n) {return n = n + 3}覆盖了前面的
+    // } 
+  </script>
+</body>
+</html>

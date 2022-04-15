@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>题1</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 没给参数复制
+    function Car(brand, color){
+
+      // 没把参数赋值，所以打印出来的是原始的默认值
+      this.brand = 'Benz';
+      this.color = 'red';
+    }
+
+    var car = new Car('Mazda', 'blank');
+    console.log(car); // Benz red 
+  </script>
+</body>
+</html>

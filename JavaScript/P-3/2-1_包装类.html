@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>包装类</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var a = 1;
+    console.log(a);
+
+    var aa = new Number(1);
+    console.log(aa);
+
+    aa.name = 'aa';
+    console.log(aa);
+
+    //参与运算之后对象又返回到原始值
+    var bb = aa + 1;
+    console.log(bb); // 2
+
+    console.log(aa);
+
+    // undefined null是不能设置任何属性和方法的
+    var test  = new Number(undefined);
+    console.log(test); //Number {NaN}
+
+    var test1  = new Number(null);
+    console.log(test1); //Number {0}
+
+    var test  = new String(undefined);
+    console.log(test); //String {"undefined"}
+
+    var test1  = new String(null);
+    console.log(test1); //String {"null"}
+
+
+    // JS包装类
+    var c = 123; //原始值 -> 数字
+    c.len = 3; 
+    //new Number(123).len = 3; 
+    //转成对象赋值后无法保存，就delete了 相当于c.len不存在，所以打印出undefined
+    console.log(c.len); //undefined 原始值是不可以有任何的属性和方法
+
+    // 通过包装类，可以解决上面的问题
+    var c1 = new Number(123);
+    c1.len = 3;
+
+    console.log(c1.len); //3
+
+    // 中间经过了一层包装类
+    var str = 'abc';
+    console.log(new String());
+    // 系统内置做的:new String(str).length
+    console.log(str.length);  //3
+    // 上述语句其实打印的是console.log(new String(str).length);
+  </script>
+</body>
+</html>

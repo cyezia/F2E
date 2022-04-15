@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>题2</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function Test(a, b, c){
+      var d = 1;
+      this.a = a;
+      this.b = b;
+      this.c = c;
+
+      function f(){
+        d++;
+        console.log(d); 
+      }
+      this.g = f; 
+
+      //return this; -> 闭包 -> 把test()函数的AO也带出去了  此时d = 1
+    }
+    var test1 = new Test();
+    test1.g(); // 2   
+    test1.g(); // 3
+    var test2 = new Test();
+    test2.g(); // 2
+  </script>
+</body>
+</html>

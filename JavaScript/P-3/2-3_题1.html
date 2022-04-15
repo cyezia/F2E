@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>题1</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // var name ='languiji'
+    // name += 10; //'languiji10'
+
+    // var type = typeof(name); // 'string'
+
+    // if(type.length === 6){  // 正好6位,true
+    //   type.text = 'string'; // new String(type).text = 'string'  没地方保存 delete
+    // }
+
+    // console.log(type.text); //undefined
+
+
+    // 加一个包装类，输出string
+
+    var name ='languiji'
+    name += 10; //'languiji10'
+
+    // 加包装类
+    var type = new String(typeof(name)); // 'string'
+
+    if(type.length === 6){  // 正好6位,true
+      type.text = 'string'; // new String(type).text = 'string'  没地方保存 delete
+    }
+
+    console.log(type.text); //undefined
+  </script>
+</body>
+</html>

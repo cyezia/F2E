@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>proto</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    // 当Car()这个构造函数被实例化（new）的时候，产生了this
+    // this默认里面有个__proto__: Car.prototype
+    function Car(){
+      // var this = {
+      //   __proto__: Car.prototype
+      // proto是每个实例化对象的原型的容器，就是装prototype的
+      // proto属于每一个实例化的对象，而不是属于某个构造函数
+
+      // }
+    }
+
+    Car.prototype.name = 'Benz';
+    // prototype是实例化以后的结果
+
+    var car = new Car();
+    console.log(car);
+    // console.log(car.name);
+
+    // proto是可以更改的
+    function Person(){}
+    Person.prototype.name = '张三';
+
+    var p1 = {
+      name: '李四'
+    }
+
+    var person = new Person();
+    console.log(person.name);
+
+    person.__proto__ = p1;
+    console.log(person.name);
+  </script>
+</body>
+</html>

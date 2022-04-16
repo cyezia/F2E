@@ -10,6 +10,37 @@
   <script type="text/javascript">
     // 写一个函数，接收任意一个字符串，算出这个字符串的总字节数
     // charCodeAt() 
+    // 方法1
+    var getBytes = function(str){
+      var bytes = 0;
+
+      for(var i =0; i < str.length; i++){
+        var pos = str.charCodeAt(i);
+        if(pos <= 255){
+          bytes++;
+        }else{
+          bytes += 2;
+        }
+      }
+      return bytes;
+    }
+    console.log(getBytes('你好，世界！Hello World!'));
+
+    // 方法2
+    function getBytes(str){
+      // 少了中文字符的数量，判断哪些是中文字符，每个中文字符的字节加一
+      var bytes = str.length;
+
+      for(var i =0; i < str.length; i++){
+        var pos = str.charCodeAt(i);
+        if(pos > 255){
+          bytes++;
+        }
+      }
+      return bytes;
+    }
+    console.log(getBytes('你好，世界！Hello World!'));
+
   </script>
 </body>
 </html>

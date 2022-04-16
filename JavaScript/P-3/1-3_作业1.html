@@ -10,6 +10,94 @@
   <script type="text/javascript">
     // 写一个构造函数，接收数字类型的参数
     // 参数的数量不定，完成参数相加和相乘的功能
+
+    // 方法1
+    // function Compute(){
+    //   var args = arguments,
+    //       res;
+          
+    //   this.plus = function(){
+    //     res = 0;
+    //     for(var i = 0; i < args.length; i++){
+    //       var item = args[i];
+    //       res += item;
+    //     }
+    //     console.log(res);
+    //   }
+
+    //   this.times = function(){
+    //     res = 1;
+    //     for(var i = 0; i < args.length; i++){
+    //       var item = args[i];
+    //       res *= item;
+    //     }
+    //     console.log(res);
+    //   }
+    // }
+    // var compute = new Compute(2, 4, 6);
+    // compute.plus();
+    // compute.times();
+
+    // 方法2
+    // function Compute(){
+    //   var args = arguments,
+    //       res;
+          
+    //   this.plus = function(){
+    //     res = 0;
+    //     loop('add', res);
+    //   }
+
+    //   this.times = function(){
+    //     res = 1;
+    //     loop('mul', res);
+    //   }
+
+    //   function loop(method, res){
+    //     for(var i = 0; i < args.length; i++){
+    //       var item = args[i];
+
+    //       if(method === 'add'){
+    //         res += item;
+    //       }else if(method === 'mul'){
+    //         res *= item;
+    //       }
+    //     }
+    //     console.log(res);
+    //   }
+    // }
+    // var compute = new Compute(2, 4, 6);
+    // compute.plus();
+    // compute.times();
+
+    // 方法3 调用时传参
+    function Compute(){
+      var res = 0;
+
+      this.puls = function(){
+        loop(arguments, 'add', res);
+      }
+      this.times = function(){
+        res = 1;
+        loop(arguments, 'mul', res);
+      }
+
+      function loop(args, method, res){
+        for(var i = 0; i < args.length; i++){
+          var item = args[i];
+
+          if(method === 'add'){
+            res += item;
+          }else if(method === 'mul'){
+            res *= item;
+          }
+        }
+        console.log(res);
+      }
+    }
+    var compute = new Compute();
+    compute.puls(2, 4, 6);
+    compute.times(3, 5, 7);
   </script>
 </body>
 </html>

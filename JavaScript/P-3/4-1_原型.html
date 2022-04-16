@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原型</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 原型prototype其实是function对象的一个属性
+    // 打印出来看一下，结果它也是对象
+    function Handphone(color, brand, system){
+      this.color = color;
+      this.brand = brand;
+      this.system = system;
+      // this.screen = '18:9';
+      // this.system = 'Android';
+    }
+
+    // Handphone.prototype.rom = '64G';
+    // Handphone.prototype.ram = '6G';
+    // Handphone.prototype.screen = '18:9'
+    // Handphone.prototype.system = 'Android';
+    // Handphone.prototype.call = function(){
+    //   console.log('I am calling somebody');
+    // }
+
+    Handphone.prototype = {
+      rom: '64G',
+      ram: '6G',
+      screen: '18:9',
+      call: function(){
+        console.log('I am calling somebody');
+      }
+    }
+
+    var hp1 = new Handphone('red', '小米');
+    var hp2 = new Handphone('black', '华为');
+
+    console.log(hp1.rom); //64G
+    console.log(hp2.ram); //6G
+    console.log(hp1.screen); //18:9
+    console.log(hp2.screen); //18:9
+    // console.log(hp1.constructor);
+    // constructor -> 构造函数本身
+    // console.log(Handphone.prototype);
+    // 这个prototype是定义构造函数构造出来的每个对象的公共祖先
+    // 所有被该构造函数构造出来的对象都可以继承原型上的属性和方法
+    // 自己this有的属性，是不会往原型上找
+    hp2.call();
+  </script>
+</body>
+</html>

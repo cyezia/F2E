@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS插件的写法</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // (function(){})() 用立即执行函数防止变量污染
+    (function(){
+      function Test(){
+
+      }
+      window.Test = Test;
+    })();
+    var test =new Test();
+  </script>
+</body>
+</html>

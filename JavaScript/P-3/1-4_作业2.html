@@ -11,7 +11,33 @@
     // 写一个构造车的函数，可设置车的品牌，颜色，排量
     // 再写一个消费者的函数，设置用户的名字，年龄，收入
     // 通过选择的方法实例化该用户喜欢的车，再设置车的属性
-    
+    function Car(opt){
+      this.brand = opt.brand;
+      this.color = opt.color;
+      this.displacement = opt.displacement;
+    }
+    function Person(opt){
+      this.name = opt.name;
+      this.age = opt.age;
+      this.income = opt.income;
+      this.selectCar = function(){
+        var myCar = new Car(opt.carOpt);
+        console.log(this.name + '挑选了一辆排量为' + myCar.displacement + '的' + myCar.color + myCar.brand);
+      }
+    }
+    // 里面是一个对象
+    var jone = new Person({
+      name: '约翰',
+      age: 29,
+      income: '20K',
+      // 里面是一个对象
+      carOpt: {
+        brand: '马自达',
+        color: '红色',
+        displacement: '2.0'
+      }
+    })
+    jone.selectCar();
   </script>
 </body>
 </html>

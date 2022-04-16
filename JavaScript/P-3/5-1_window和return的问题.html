@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>window和return的问题</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 用return
+    function test(){
+      var a = 1;
+      function push1(){
+        a++;
+        console.log(a);
+      }
+      return push1;
+    }
+    var plus = test();
+    plus(); // 2
+    plus(); // 3
+    plus(); // 4
+
+
+    //用window
+    function test1(){
+      var a = 1;
+      function add(){
+        a++;
+        console.log(a);
+      }
+      window.add = add;
+    }
+    test1();
+
+    add();// 2
+    add(); // 3
+    add(); // 4
+
+
+    // return
+    var add = (function(){
+      var a = 1;
+      function add(){
+        a++;
+        console.log(a);
+      }
+      return add;
+    })(); 
+
+    add();// 2
+    add(); // 3
+    add(); // 4
+
+
+    // window
+    (function(){
+      var a = 1;
+      function add(){
+        a++;
+        console.log(a);
+      }
+      window.add = add;
+    })(); 
+
+    add();// 2
+    add(); // 3
+    add(); // 4
+
+  </script>
+</body>
+</html>

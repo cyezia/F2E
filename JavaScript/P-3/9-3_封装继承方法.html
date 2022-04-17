@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>封装继承方法</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    function Teacher(){}
+    function Student(){}
+    function Buffer(){}
+    inherit(Student, Teacher);
+
+    var s = new Student();
+    var t = new Teacher();
+    
+    console.log(s);
+    console.log(t);
+    // inherit 继承   Target 目标, Origin 原来的
+    function inherit(Target, Origin){
+      function Buffer(){}
+      Buffer.prototype = Origin.prototype;
+      Target.prototype = new Buffer();
+      Target.prototype.constructor = Target; // constructor等于它本身 （还原构造器，让student构造器重新指向student）
+      Target.prototype.super_class = Origin; // super_class 超类 继承源 (设置继承源)
+    }
+  </script>
+</body>
+</html>

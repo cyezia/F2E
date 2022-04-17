@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS圣杯模式 双飞翼</title>
+  <style type="text/css">
+    .clearfix::after{
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .wrap{
+      width: 700px;
+      margin: 0 auto;
+      border: 1px solid #000;
+    }
+    .top,
+    .foot{
+      height: 50px;
+      background-color: #000;
+    }
+
+    .main{
+      padding: 0 100px;
+      overflow: hidden;
+    }
+
+    .main .left,
+    .main .content,
+    .main .right{
+      float: left;
+      position: relative;
+      background-color: green;
+      margin-bottom: -2000px;
+      padding-bottom: 2000px;
+    }
+
+    .main .left{
+      left: -100px;
+      width: 100px;
+    }
+
+    .main .content{
+      width: 100%;
+      margin-left: -100px;
+      background-color: red;
+    }
+
+    .main .right{
+      left: 100px;
+      width: 100px;
+      margin-left: -100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top"></div>
+    <div class="main clearfix">
+      <div class="left">123</div>
+      <div class="content">234<br />123</div>
+      <div class="right">456</div>
+    </div>
+    <div class="foot"></div>
+  </div>
+  <script type="text/javascript">
+    
+  </script>
+</body>
+</html>

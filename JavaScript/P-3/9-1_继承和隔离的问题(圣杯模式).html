@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>继承和隔离的问题(圣杯模式)</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function Teacher(){
+      this.name = 'Mr. Li';
+      this.tSkill = 'JAVA';
+    }
+
+    Teacher.prototype = {
+      pSkill: 'JS/JQ'
+    }
+
+    var t = new Teacher();
+    console.log(t);
+
+    function Student(){
+      this.name = 'Mr. Wang';
+    }
+    
+    // 借助一个Buffer()接收teacher的prototype 再赋值给student.prototype，之后再修改student的prototype，不会影响teacher的prototype
+    function Buffer(){}
+    Buffer.prototype = Teacher.prototype;
+    var butter = new Buffer(); //buffer的prototype就是teacher的prototype
+    Student.prototype = butter; //这样student上就有了teacher的prototype
+    Student.prototype.age = 18;
+    // 圣杯模式
+
+    var s = new Student();
+    console.log(s);
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>不是所有的对象都继承于Object.prototype</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var obj = Object.create(null);
+
+    obj.num = 1;
+    obj.toString();
+    // 不是所有的对象都继承于Object.prototype
+    // var obj = Object.create(null); 如果里面原型填null的话，就不继承
+  </script>
+</body>
+</html>

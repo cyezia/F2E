@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>两种声明对象的方法</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var obj1 = {} //自变量声明
+    console.log(obj1); //constructor -> Object()
+
+    // 公司一般不用这样
+    var obj2 = new Object(); //系统自带的object
+    console.log(obj2); //constructor -> Object()
+
+    function Obj(){}
+    var obj3 = new Obj();
+    console.log(obj3); //constructor -> Obj()
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>call和apply</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function Car(brand, color){
+      this.brand = brand;
+      this.color = color;
+    }
+    var newCar = {};
+
+    // call/apply 更改this指向，把this改成了newCar了
+    // 就是写法有点区别
+    Car.call(newCar,'Benz', 'red');
+
+    Car.apply(newCar, ['Benz', 'red']);
+    console.log(newCar);
+
+
+
+    function Compute(){
+      this.plus = function(a, b){
+        console.log(a + b);
+      }
+      this.minus =function(a ,b){
+        console.log(a - b);
+      }
+    }
+
+    function FullCompute(){
+      Compute.apply(this);
+      this.mul = function(a ,b){
+        console.log(a * b);
+      }
+      this.div =function(a, b){
+        console.log(a / b);
+      }
+    }
+    
+    var compute = new  FullCompute();
+    compute.plus(1, 2);
+    compute.minus(1, 2);
+    compute.mul(1, 2);
+    compute.div(1, 2);
+
+  </script>
+</body>
+</html>

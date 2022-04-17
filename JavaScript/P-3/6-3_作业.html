@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作业</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 写一个插件，任意传两个数字，调用内部方法可进行加减乘除功能
+
+    // (function(){
+    //   var Compute = function(opt){
+    //     // 如果是假（没传值），就是0
+    //     this.x = opt.firstNum || 0;
+    //     this.y = opt.secondNum || 0;
+    //   }
+
+    //   Compute.prototype = {
+    //     plus: function(){
+    //       return this.x + this.y;
+    //     },
+    //     minus: function(){
+    //       return this.x - this.y;
+    //     },
+    //     mul: function(){
+    //       return this.x * this.y;
+    //     },
+    //     div: function(){
+    //       return this.x / this.y;
+    //     }
+    //   }
+
+    //   window.Compute = Compute;
+    // })();
+    // var compute = new Compute({
+    //   firstNum: 1,
+    //   secondNum: 2
+    // });
+
+    // var res = compute.div();
+    // console.log(res);
+
+    (function(){
+      var Compute = function(){}
+
+      Compute.prototype = {
+        plus: function(a, b){
+          return a + b;
+        },
+        minus: function(a, b){
+          return a - b;
+        },
+        mul: function(a, b){
+          return a * b;
+        },
+        div: function(a, b){
+          return a / b;
+        }
+      }
+
+      window.Compute = Compute;
+    })();
+    // var compute = new Compute({
+    //   firstNum: 1,
+    //   secondNum: 2
+    // });
+
+    var compute = new Compute();
+    var res = compute.div(1, 2);
+    console.log(res);
+
+  </script>
+</body>
+</html>

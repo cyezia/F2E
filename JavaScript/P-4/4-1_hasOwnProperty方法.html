@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hasOwnProperty方法</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var obj = {
+      name: '小叶子',
+      age: 23
+    }
+    function Car(){
+      this.brand = 'Benz';
+      this.car = 'red';
+      this.displacement = '3.0';
+    }
+
+    Car.prototype = {
+      lang: 5,
+      widtn: 2.5
+    }
+
+    Object.prototype.name = 'Object';
+
+    var car = new Car();
+    console.log(car);
+
+    for(var key in car){
+      // console.log(key + ':' + car[key]);
+      // 打印出自己的属性，不想打印出原型上的属性
+      // hasOwnProperty就是找对象自身的属性，排除自定义的原型上的属性
+      if(car.hasOwnProperty(key)){
+        console.log(key + ':' + car[key]);
+      }
+    }
+
+
+    // 其它方法 in 
+    var car1 = {
+      brand: 'Benz',
+      color: 'black'
+    }
+    // car['displacement']
+    console.log('displacement' in car1); // false
+    console.log('color' in car1); //true
+
+
+    // in是不排除原型上的属性的
+    function Car2(){
+      this.brand = brand;
+      this.color = color;
+    }
+
+    Car2.prototype = {
+      displacement: '3.0'
+    }
+
+    var car3 = new Car();
+    console.log('displacement' in car3); //true
+  </script>
+</body>
+</html>

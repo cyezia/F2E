@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象枚举</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var arr = [1, 2, 3, 4, 5];
+    for(var i = 0; i < arr.length; i++){
+      // console.log(i); // 0 1 2 3 4 
+      console.log(arr[i]);
+    }
+
+    // 遍历对象
+    var car = {
+      brand: 'Benz',  // key: value
+      color: 'red',
+      displacement: '3.0',
+      lang: '5',
+      width: '2.5'
+    }
+
+    // for in循环
+    // key 键名
+    for(var key in car){
+      // console.log(key);
+      // console.log(car.key);  //undefined 
+      // 原因：car.key -> car['key'] -> undefined
+      console.log(key + ':' + car[key]);
+    }
+
+    // for in 遍历数组也可以
+    var arr = [3, 5, 6, 10, 1];
+    for(var i in arr){
+      console.log(arr[i]);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>判断是不是数组</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var a = [];
+
+    // 方法1
+    console.log(a.constructor); //Array()
+
+    // 方法2
+    console.log(a instanceof Array); //true
+    
+    // 方法3
+    var str = Object.prototype.toString.call(a);
+    if(str === '[object Array]'){
+      console.log('是数组');
+    }else{
+      console.log('不是数组');
+    }
+    console.log(str); // [object Array]
+
+
+
+    // Object.prototype = {
+    //   toString: function(){
+    //     this.toString;
+    //   }
+    // }
+    // call(a) 就是更改this的指向，上面的 this.toString -> a.toString 
+  </script>
+</body>
+</html>

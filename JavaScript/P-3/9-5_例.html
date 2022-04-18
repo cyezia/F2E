@@ -8,6 +8,17 @@
 </head>
 <body>
   <script type="text/javascript">
+    var inherit = (function(){
+      var Buffer = function(){}
+      return function(Target, Origin){
+        Buffer.prototype = Origin.prototype;
+        Target.prototype = new Buffer();
+        Target.prototype.constructor = Target; // constructor等于它本身 （还原构造器，让student构造器重新指向student）
+        Target.prototype.super_class = Origin; // super_class 超类 继承源 (设置继承源)
+      }
+      // return inherit; // 提到上面返回一个匿名函数
+    })();
+
     var initProgrammer = (function(){
       var Programmer = function(){}
       Programmer.prototype = {
@@ -16,7 +27,7 @@
         work: '编写应用程序',
         duration: '10个小时',
         say: function(){
-          console.log('我是一名' + this.myName + this.name + '，我的工作是用' + this.tool + this.work + '，我每天工作' + this.duration + '，我的工作需要用到' + this.lang + toString() + '。');
+          console.log('我是一名' + this.myName + this.name + '，我的工作是用' + this.tool + this.work + '，我每天工作' + this.duration + '，我的工作需要用到' + this.lang.toString() + '。');
         }
       }
       function FrontEnd(){}

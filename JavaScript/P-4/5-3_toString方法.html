@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>toString方法</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var arr = new Array(1, 2, 3);
+    console.log(arr); //[1, 2, 3]
+    console.log(arr.toString()); // 1, 2, 3
+    // __proto__:Array  底下是有toString()的
+    // __proto__:Object 底下也有toString()的
+
+    // 调用Object里面的toString() -> 用arr是替换Object.prototype.toString里面的this
+    console.log(Object.prototype.toString.call(arr)); // [object Array]
+  </script>
+</body>
+</html>

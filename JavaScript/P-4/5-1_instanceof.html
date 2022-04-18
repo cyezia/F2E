@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>instanceof</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function Car(){}
+    var car = new Car();
+
+    function Person(){}
+    var p = new Person();
+
+    // 判断这个对象是否是该构造函数实例化出来的
+    console.log(car instanceof Car); //true
+    console.log(p instanceof Car); //false
+    console.log(car instanceof Object); //true 是顶端Object构造出来的
+    console.log([] instanceof Array); //true
+    console.log([] instanceof Object); //true
+    console.log({} instanceof Object); //true
+
+    // A对象的原型里到底有没有B的原型
+    // 在原型链上只要重合的 都是true ，B实例化出来的对象只要跟A对象的原型链上有重合的都是true
+  </script>
+</body>
+</html>

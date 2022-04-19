@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>题6</title>
+</head>
+<body>
+  <script type="text/javascript">
+    
+    var a = 5;
+    function test(){
+      a = 0;
+      console.log(a); // 0
+      console.log(this.a); //5
+      var a; 
+      console.log(a); //0
+    }
+
+    test(); //0
+    new test(); //0
+  </script>
+</body>
+</html>

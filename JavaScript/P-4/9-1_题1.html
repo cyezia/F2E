@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>题1</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function foo(){
+      bar.apply(null, arguments);
+      // bar(arguments)
+    }
+    function bar(){
+      console.log(arguments);
+    }
+    bar(); // 空数组
+    foo(1, 2, 3, 4, 5); //[1, 2, 3, 4, 5]
+
+    // bar() -> bar.call(arguments) -> bar(arguments)
+  </script>
+</body>
+</html>

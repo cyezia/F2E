@@ -16,7 +16,7 @@
     // 方法2
     console.log(a instanceof Array); //true
     
-    // 方法3
+    // 方法3 尽可能的用这种方法
     var str = Object.prototype.toString.call(a);
     if(str === '[object Array]'){
       console.log('是数组');

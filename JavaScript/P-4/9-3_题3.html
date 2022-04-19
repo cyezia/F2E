@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>题3</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var f = (
+      function f(){
+        return '1';
+      },
+      function g(){
+        return 2;
+      }
+    );
+
+    console.log(typeof f); //function
+    // var f = (f(), g());
+
+
+    var f = (
+      function f(){
+        return '1';
+      },
+      function g(){
+        return 2;
+      }
+    )();
+
+    console.log(typeof(f)); //number
+
+    // var f = (f(), g())(); 执行,后面的函数，即g  
+  </script>
+</body>
+</html>

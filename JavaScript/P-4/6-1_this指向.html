@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>this指向</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 函数内部的this
+    function test(){
+      // this.d = 3;  //window.d
+      // 直接写
+      d= 3;
+      var a = 1;
+      function c(){}
+    }
+    test(123);
+    console.log(d);
+  // AO = {
+  //    arguments: [123]
+  //    this: window
+  //    b: 123,
+  //    a: undefined
+  //    c: function c(){}
+  // }
+
+
+
+  // 当实例化之后
+  function Test(){
+    // new了之后 相当于在这里面生成了
+    // var this = {
+    //   __proto__: Test.prototype
+    // }
+    this.name = '123';
+
+  }
+  var test = new Test();
+  // AO = {
+  //    this: window //new之后的东西覆盖掉
+  // }
+
+  // 即新的AO如下
+  // AO = {
+  //    this: {
+  //      name: '123',
+  //      __proto__: Test.prototype
+  // }
+  // }
+
+
+  // GO = {
+  //    Test: function test(){...}
+  //    test: {}
+  // }
+  </script>
+</body>
+</html>

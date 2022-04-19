@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>题4</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // undefined null 都不大于0 也不小于0 也不等于0
+    console.log(undefined == null); // true
+    console.log(undefined === null); //false
+    console.log(isNaN('100')); //false
+    console.log(isNaN('abc')); //true
+    console.log(parseInt('1a') == 1); //true 看到数字继续往后看，看到非数输出前面的数字
+    console.log({} == {}); //false 因为引用值对比的是地址，地址不同
+
+    // 怎么让它们想等
+    var obj = {};
+    obj1 = obj;
+    console.log(obj == obj1); //true
+  
+  </script>
+</body>
+</html>

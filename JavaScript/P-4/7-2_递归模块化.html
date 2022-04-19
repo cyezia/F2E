@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>递归模块化</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 递归
+    // function sum(n){
+    //   if(n <= 1){
+    //     return 1;
+    //   }
+    //   return n + sum(n -1);
+    // }
+
+    var sum = (function(n){
+      if(n <= 1){
+        return 1;
+      }
+      // arguments.callee 找到正在执行的函数
+      return n + arguments.callee(n - 1);
+    })(10);
+
+    console.log(sum);
+  </script>
+</body>
+</html>

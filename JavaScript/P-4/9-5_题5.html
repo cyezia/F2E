@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>题5</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var a = '1';
+    function test(){
+      var a = '2';
+      this.a = '3';
+      console.log(a);
+    }
+
+    test(); // 2  打印 var a ='2' 
+    new test(); // 2 打印 var a ='2' 
+    console.log(a); //3 
+  </script>
+</body>
+</html>

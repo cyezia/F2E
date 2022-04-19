@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>深拷贝</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 拷贝/复制/克隆
+    Object.prototype.num = 1;
+    var person1 = {
+      name: '张三',
+      age: 18,
+      sex: 'male',
+      height: 180,
+      weight: 140,
+      children: {
+        first: {
+          name: '张小一',
+          age: 13
+        },
+        second: {
+          name: '张小二',
+          age: 7
+        }
+      },
+      car: ['Benz', 'Mazda']
+    }
+
+    var person2 = deepClone(person1);
+    person2.name = '李四';
+    person2.children.third = {
+      name: '张小四',
+      age: 3
+    }
+    console.log(person1, person2);
+    
+    // 深拷贝
+    function deepClone(origin, target){
+      var target = target || {},
+          toStr = Object.prototype.toString,
+          arrType = '[object Array]';
+
+          for(var key in origin){
+            if(origin.hasOwnProperty(key)){
+              // 因为null打印出来的也是object，所以要判断
+              if(typeof(origin[key]) === 'object' && origin[key] !== null){
+                if(toStr.call(origin[key]) === arrType){
+                  target[key] = [];
+                }else{
+                  target[key] = {};
+                }
+
+                deepClone(origin[key], target[key]);
+              }else{
+                target[key] = origin[key];
+              }
+            }
+          }
+          return target;
+    }
+    
+  </script>
+</body>
+</html>

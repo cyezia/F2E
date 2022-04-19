@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>浅拷贝</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 拷贝/复制/克隆
+    Object.prototype.num = 1;
+    var person1 = {
+      name: '张三',
+      age: 18,
+      sex: 'male',
+      height: 180,
+      weight: 140,
+      son: {
+        first: 'Jenney',
+        second: 'Lucy',
+        Third: 'Jone'
+      },
+      arr: []
+    }
+
+    // var person2 = {}
+
+    // 浅拷贝
+    // for(var key in person1){
+    //   person2[key] = person1[key];
+    // }
+    // clone(person1, person2);
+    // person2.name = '李四';
+    // person2.son.forth = 'Ben';
+    // console.log(person1, person2);
+
+    // function clone(origin, target){
+    //   for(var key in person1){
+    //     // hasOwnProperty剔除原型上的num，返回自身的属性
+    //     if(origin.hasOwnProperty(key)){
+    //       target[key] = origin[key];
+    //     }
+    //   }
+    // }
+
+    var person2 = clone(person1);
+    person2.name = '李四';
+    person2.son.forth = 'Ben';
+    console.log(person1, person2);
+
+    // 浅拷贝
+    function clone(origin, target){
+      var tar = target || {};
+      for(var key in origin){
+        // hasOwnProperty剔除原型上的num，返回自身的属性
+        if(origin.hasOwnProperty(key)){
+          tar[key] = origin[key];
+        }
+      }
+      return tar;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>题1</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var name = '222'
+    var a = {
+      name: '111',
+      say: function(){
+        console.log(this.name); // 222
+      }
+    }
+    var fun = a.say;
+    // var fun = function(){
+    //    console.log(this.name); 此时this指向window   
+    // }
+    fun();  // 222
+    a.say(); // 111 访问的是对象里的方法 this指向的是a
+    var b = {
+      name: '333',
+      say: function(fun){
+        fun();
+        // +function(){
+        //    console.log(this.name); 此时this指向window   
+        // }();
+      }
+    }
+    b.say(a.say); // 222  此处执行的this指向的还是window 
+    // 
+    b.say = a.say; 
+    // function(fun){
+    //  fun();
+    // }
+    // function(){
+    //    console.log(this.name); 此时this指向window   
+    // }
+    b.say(); // 333
+  </script>
+</body>
+</html>

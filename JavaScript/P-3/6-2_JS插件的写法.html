@@ -9,12 +9,19 @@
 <body>
   <script type="text/javascript">
     // (function(){})() 用立即执行函数防止变量污染
-    (function(){
-      function Test(){
+    ;(function(){
+      var Test = function(){
 
       }
+      
+      Test.prototype = {
+
+      }
+
       window.Test = Test;
+
     })();
+    
     var test =new Test();
   </script>
 </body>

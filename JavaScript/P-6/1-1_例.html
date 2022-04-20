@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>例</title>
+</head>
+<body>
+  <div id="box" class="box">123</div>
+  <div id="box2" class="box">234</div>
+  <div id="box3">456</div>
+  <script type="text/javascript">
+    var box = document.getElementById('box');
+    // var boxes = document.getElementsByTagName('div')[1];
+    // var boxes = document.getElementsByClassName('box');
+
+    // 一个操作引发了一个事件的发生
+    // box.onclick = function(){
+    //   console.log(1);
+    // }
+    // console.log(box);
+
+    // 给多个元素绑定onclick事件
+    var boxes = document.getElementsByTagName('div');
+    for(var i = 0; i < boxes.length; i++){
+      boxes[i].onclick = function(){
+        console.log(this.innerText);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>轮播图</title>
+  <link rel="stylesheet" href="../CSS/slider.css" />
+</head>
+<body>
+  <div class="slider-wrap">
+    <div class="slider">
+      <ul class="slider-list">
+        <li class="slider-item active">
+          <a href="">
+            <img src="../img/1.jpg" alt="" />
+          </a>
+        </li>
+        <li class="slider-item">
+          <a href="">
+            <img src="../img/2.jpg" alt="" />
+          </a>
+        </li>
+        <li class="slider-item">
+          <a href="">
+            <img src="../img/3.jpg" alt="" />
+          </a>
+        </li>
+        <li class="slider-item">
+          <a href="">
+            <img src="../img/4.jpg" alt="" />
+          </a>
+        </li>
+        <li class="slider-item">
+          <a href="">
+            <img src="../img/5.jpg" alt="" />
+          </a>
+        </li>
+        <li class="slider-item">
+          <a href="">
+            <img src="../img/6.jpg" alt="" />
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="thumbs">
+      <ul class="thumbs-list">
+        <li class="thumb-item cur">
+          <!-- javascript:; 协议限定符让它不跳转 -->
+          <a href="javascript:;">
+            <img src="../img/1.jpg" alt="">
+          </a>
+        </li>
+        <li class="thumb-item">
+          <!-- javascript:; 协议限定符让它不跳转 -->
+          <a href="javascript:;">
+            <img src="../img/2.jpg" alt="">
+          </a>
+        </li>
+        <li class="thumb-item">
+          <!-- javascript:; 协议限定符让它不跳转 -->
+          <a href="javascript:;">
+            <img src="../img/3.jpg" alt="">
+          </a>
+        </li>
+        <li class="thumb-item">
+          <!-- javascript:; 协议限定符让它不跳转 -->
+          <a href="javascript:;">
+            <img src="../img/4.jpg" alt="">
+          </a>
+        </li>
+        <li class="thumb-item">
+          <!-- javascript:; 协议限定符让它不跳转 -->
+          <a href="javascript:;">
+            <img src="../img/5.jpg" alt="">
+          </a>
+        </li>
+        <li class="thumb-item">
+          <!-- javascript:; 协议限定符让它不跳转 -->
+          <a href="javascript:;">
+            <img src="../img/6.jpg" alt="">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript" src="../JS/slider.js"></script>
+  <script type="text/javascript">
+    var slider = new Slider({
+      sliderItem: 'slider-item',
+      thumbItem: 'thumb-item'
+    });
+  </script>
+</body>
+</html>

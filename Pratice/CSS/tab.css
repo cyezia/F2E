@@ -1,0 +1,72 @@
+body{
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+/* 用清除浮动解决高度塌陷问题，让高度被内容撑开，这样就不用在设置tab的高度了 */
+.clearfix::after{
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.tab-wrap{
+  width: 500px;
+  /* height: 500px; */
+  /* border: 1px solid #000; */
+  margin: 50px auto;
+}
+
+/* .tab{
+  /* height: 50px; 
+  border: 1px solid #000;
+} */
+
+.tab .tab-item{
+  float: left;
+  width: 100px;
+  height: 50px;
+}
+
+.tab .tab-item a{
+  display: block;
+  height: 100%;
+  text-align: center;
+  line-height: 50px;
+  color: #000;
+}
+
+/* cur current 现在 */
+.tab .tab-item.cur{
+  background-color: #000;
+}
+
+.tab .tab-item.cur a{
+  color: #fff;
+}
+
+.page{
+  height: 450px;
+  border: 1px solid #000;
+}
+
+.page .page-item{
+  /* 所有的内容不显示 */
+  display: none;
+  position: absolute;
+  /* top: 0; */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 450px;
+  font-size: 100px;
+}
+
+/* 显示一个激活的 */
+.page .page-item.active{
+  display: block;
+}

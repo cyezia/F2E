@@ -1,0 +1,75 @@
+body{
+  margin: 0;
+}
+
+ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+
+/* 
+* 图片尺寸：960*600 
+* 已知右侧小容器（thumb-item）高度：80
+* 右侧容器（thumbs）高度：80*6=480
+* 左侧容器（slider）的宽度：960*480/600=768
+* 右侧小容器（thumb-item）宽度：960*80/600=128
+* 
+* 大容器(slider-wrap)的尺寸：896*480
+* 左侧容器(slider-item)的尺寸：768*480
+* 右侧大容器(thumbs)的尺寸：128*480
+* 右侧小容器(thumb-item)的尺寸：128*80
+*/
+
+/* 图片的宽高设置100% 继承于父级盒子 */
+img{
+  width: 100%;
+  height: 100%;
+}
+
+.slider-wrap{
+  width: 896px;
+  height: 480px;
+  margin: 50px auto;
+  border: 1px solid #000;
+}
+
+.slider{
+  float: left;
+  position: relative;
+  width: 768px;
+  height: 480px;
+}
+
+.slider .slider-item{
+  display: none;
+  position: absolute;
+  height: 480px;
+}
+
+/* 
+* 让所有的 slider-item display: none; 
+* 如果有active，再display: block; 其余的隐藏
+*/
+.slider .slider-item.active{
+  display: block;
+}
+
+.thumbs{
+  float: left;
+  width: 128px;
+  height: 480px;
+}
+
+.thumbs .thumb-item{
+  height: 80px;
+  /* 先给一个默认的透明度 */
+  opacity: .5;
+}
+
+.thumbs .thumb-item.cur{
+  opacity: 1;
+}

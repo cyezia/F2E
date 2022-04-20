@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>join|split</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    var arr = ['a', 'b', 'c', 'd'];
+    console.log(arr.join());
+    console.log(arr.toString()); //a,b,c,d
+
+    var arr1 = ['a', 'b', 'c', 'd', 'e', 'f'];
+    var str1 = arr1.join('-');
+    console.log(str1);
+    var arr2 = str1.split('-', 4);
+    console.log(arr2);
+  </script>
+</body>
+</html>

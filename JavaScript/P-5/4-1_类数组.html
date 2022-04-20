@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>类数组</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    function test(){
+      console.log(arguments);
+    }
+    test(1,2,3,4,5,6);
+
+    var obj = {
+      '0': 1,
+      '1': 2,
+      '2': 3,
+      '3': 4,
+      '4': 5,
+      '5': 6,
+      'length': 6
+      // 'push': Array.prototype.push,
+      // 'splice': Array.prototype.splice,
+    }
+    Object.prototype.push = Array.prototype.push;
+    Object.prototype.splice = Array.prototype.splice;
+    obj.push(7);
+    console.log(obj);
+
+    // 怎么实现的
+    Array.prototype.push = function(elem){
+      // obj[obj.length] = elem;
+      this[this.length] = elem;
+      this.length++;
+
+    }
+  </script>
+</body>
+</html>

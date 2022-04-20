@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pop|shift</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // push在数组的最后一位添加，unshift在数组第一位前面添加
+    
+    var arr = [2, 3, 4];
+
+    Array.prototype.myPush = function(){
+      for(var i =0; i < arguments.length; i++){
+        // arr[arr.length] = arguments[i];
+        // arguments 参数列表
+        this[this.length] = arguments[i];
+      }
+      return this.length;
+    }
+  </script>
+</body>
+</html>

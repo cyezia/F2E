@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sort</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // sort是按照ASCII码来排列的
+
+    var arr = [27, 49, 5, 7];
+    // sort返回结果就是排序之后的数组
+    // arr.sort();
+    // console.log(arr);
+
+    // 1、参数a, b
+    // 2、返回值： 1、负值，a就排在前面
+    //           2、正值，b就排在前面
+    //           3、0，保持不动
+    arr.sort(function(a, b){
+      // if(a > b){
+      //   return 1;
+      // }else{
+      //   return -1;
+      // }
+      return a - b;
+    });
+    console.log(arr);  //[5, 7, 27, 49]
+
+    var arr1 = [
+      {
+        son: 'Jenny',
+        age: 18
+      },
+      {
+        son: 'Jone',
+        age: 10
+      },
+      {
+        son: 'Ben',
+        age: 3
+      },
+      {
+        son: 'Lucy',
+        age: 11
+      }
+    ];
+    arr1.sort(function(a, b){
+      if(a.age > b.age){
+        return 1;
+      }else{
+        return -1;
+      }
+    });
+    console.log(arr1);
+  </script>
+</body>
+</html>

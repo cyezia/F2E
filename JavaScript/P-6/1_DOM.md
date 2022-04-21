@@ -25,3 +25,39 @@
   浏览器对象window(BOM)和document(DOM)
 
 - 本地对象和内置对象都是ES（ECMAScript）的内部对象
+
+## 遍历节点树 - 元素节点树
+
+- 节点包含元素 -> 元素节点 = DOM元素
+
+- parentNode 父级元素
+
+- childNodes 子节点
+
+  1、元素节点 = 1
+
+  2、属性节点 = 2
+  
+  3、文本节点 text = 3
+
+  4、注释节点 comment = 8
+
+  5、document = 9
+
+  6、DocumentFragment = 11
+
+- firstChild lastChild
+
+- nextSibling previousSibling 兄弟节点
+
+## 遍历元素节点树
+
+- parentElement 遍历元素节点树  IE9及以下不支持
+
+- children 选择子元素 IE7及以下不支持
+
+- childElementCount = children.length IE9及以下不支持
+
+- firstElementChild lastElementChild 父级元素的第一个/最后一个子元素 IE9及以下不支持
+
+- nextElementSibling previousElementSibling 下/上一个兄弟元素 IE9及以下不支持

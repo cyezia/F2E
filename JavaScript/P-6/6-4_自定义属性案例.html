@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自定义属性案例</title>
+</head>
+<body>
+  <a href="javascript:;" data-uri="txwz" data-sort="free">天下无贼</a>
+  <a href="javascript:;" data-uri="fczlm" data-sort="pay">复仇者联盟</a>
+  <script type="text/javascript">
+    // HTML5给元素增加了一个data-属性
+    // 保存在p.dataset中
+    var links = document.getElementsByTagName('a');
+    for(var i = 0; i < links.length; i++){
+      (function(j){
+        links[j].onclick = function(){
+          var sort = this.dataset.sort;
+          var uri = this.dataset.uri;
+
+          if(sort === 'free'){
+            window.open('http://www.baidu.com/' + uri);
+          }else{
+            alert('这是付费影片');
+          }
+        }
+      })(i);
+    }
+    
+  </script>
+</body>
+</html>

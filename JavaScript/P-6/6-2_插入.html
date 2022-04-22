@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>插入</title>
+</head>
+<body>
+  <div>
+    <p>我是段落标签</p>
+  </div>
+  <script type="text/javascript">
+
+    var div = document.getElementsByTagName('div')[0];
+    var p = document.getElementsByTagName('p')[0];
+    var a = document.createElement('a');
+    a.href = '';
+    // 将a插到p之前
+    div.insertBefore(a, p); 
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM创建结构</title>
+</head>
+<body>
+  <!-- <div id="box">
+    <ul class="list">
+      <li class="list-item">1</li>
+      <li class="list-item">2</li>
+      <li class="list-item">3</li>
+      <li class="list-item">4</li>
+      <li class="list-item">5</li>
+    </ul>
+  </div> -->
+  <script type="text/javascript">
+    var div = document.createElement('div'),
+        ul = document.createElement('ul'),
+        frag = document.createDocumentFragment();
+    
+    // div.setAttribute('id', 'box');
+    div.id = 'box';
+    ul.className = 'list';
+    for(var i = 0; i < 5; i++){
+      var li =document.createElement('li');
+      li.className = 'list-item';
+      li.innerHTML = i + 1;
+      frag.appendChild(li);
+    }
+    ul.appendChild(frag);
+    div.appendChild(ul);
+    document.body.appendChild(div);
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>遍历输出父级元素下所有的子元素</title>
+</head>
+<body>
+  <div class="box">
+    <ul>
+      <li>
+        <h1>111</h1>
+        <a href="">222</a>
+        <p>333</p>
+        <div>
+          <ul>
+            <li>444</li>
+            <li>
+              <h2>555</h2>
+              <a href="">666</a>
+              <p>777</p>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <div>
+      <p>
+        <a href="">888</a>
+      </p>
+      <h1>
+        <strong>999</strong>
+        <span>000</span>
+      </h1>
+    </div>
+  </div>
+  <script type="text/javascript">
+    // 遍历输出父级元素下所有的子元素节点 递归
+    var box = document.getElementsByClassName('box')[0];
+
+    getFullChildren(box);
+    function getFullChildren(node){
+      var children = node.childNodes,
+          len = children.length,
+          item;
+
+      if(node && node.nodeType === 1){
+        console.log(node);
+      }
+
+      for(var i = 0; i < len; i++){
+        item = children[i];
+
+        // 只要是元素节点，就重新执行getFullChildren这个函数，判断下面是否还有子元素
+        // 只有元素节点有可能下面有子元素
+        if(item.nodeType === 1){
+          getFullChildren(item);
+        }
+      }
+    }
+  </script>
+</body>
+</html>

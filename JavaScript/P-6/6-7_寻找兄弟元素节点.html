@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>寻找兄弟元素节点</title>
+</head>
+<body>
+  <div>
+    <p></p>
+    <h1></h1>
+    <a href=""></a>
+    <strong></strong>
+    <em></em>
+    <h2></h2>
+  </div>
+  <script type="text/javascript">
+    // 在原型上编程
+    // 寻找兄弟元素节点
+    // 参数N为正，找到之后的第N个
+    // 参数N为负，找到之前的第N个
+    // 参数N为零，找到自己 
+    
+    // 比如说找strong的兄弟元素节点
+    // var strong = document.getELementsByTagName('strong')[0];
+    var strong = document.getElementsByTagName('strong')[0];
+    Element.prototype.elemSibling = function(n){
+      var elem = this;
+
+      // 方法1
+      // if(n > 0){
+      //   while(n){
+      //     elem = elem.nextElementSibling;
+      //     n--;
+      //   }
+      // }else if(n < 0){
+      //   while(n){
+      //     elem = elem.previousElementSibling;
+      //     n++;
+      //   }
+      // }
+
+      // 兼容性不太好
+      // while(n){
+      //   if(n > 0){
+      //     elem = elem.nextElementSibling;
+      //     n--;
+      //   }else if(n < 0){
+      //     elem = elem.previousElementSibling;
+      //     n++;
+      //   }
+      // }
+
+      // 方法2
+      // while(n){
+      //   if(n > 0){
+      //     if(elem.nextElementSibling){
+      //       elem = elem.nextElementSibling;
+      //     }else{
+      //       elem = elem.nextSibling;
+      //       // 过滤掉注释节点、文本节点
+      //       // 元素存在且 nodeType不等于1
+      //       for(; elem && elem.nodeType !== 1;elem = elem.nextSibling);
+      //       // elem = elem.nextSibling;
+      //       // for(; elem && elem.nodeType !== 1; ){
+      //       //   elem = elem.nextSibling
+      //       // }
+      //       // -> for(elem = elem.nextSibling; elem && elem.nodeType !== 1;elem = elem.nextSibling);
+      //     }
+      //     n--;
+      //   }else if(n < 0){
+      //     if(elem.previousElementSibling){
+      //       elem = elem.previousElementSibling;
+      //     }else{
+      //       for(elem = elem.previousElementSibling; elem && elem.nodeType !== 1; elem = elem.previousSibling);
+      //     }
+      //     n++;
+      //   }
+      // }
+
+      // 方法3 比较好的方法
+      while(n){
+        if(n > 0){
+          elem = elem.nextSibling;
+          while(elem && elem.nodeType !== 1){
+            elem = elem.nextSibling;
+          }
+          n--;
+        }else if(n < 0){
+          elem = elem.previousSibling;
+          while(elem && elem.nodeType !== 1){
+            elem = elem.previousSibling;
+          }
+          n++;
+        }
+      }
+      return elem;
+    }
+
+    console.log(strong.elemSibling(-3));
+  </script>
+</body>
+</html>

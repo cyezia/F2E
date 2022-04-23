@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>clearInerval</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var a = 0;
+    // setInterval(function(){});
+    var timer = setInterval(function(){
+      a++;
+      console.log(a);
+
+      if(a > 5){
+        // clearInterval()括号里填setInterval()的标识
+        // clearInterval(1);
+        clearInterval(timer);
+      }
+    });
+  </script>
+</body>
+</html>

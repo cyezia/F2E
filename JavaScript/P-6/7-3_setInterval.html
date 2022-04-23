@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setInterval</title>
+</head>
+<body>
+  <h1>
+    已进行<span>0</span>秒
+  </h1>
+  <script type="text/javascript">
+    // setInterval() 计时器 
+    // 每隔特定的毫秒数时间执行一次内部函数
+
+    // 第一种写法
+    // setInterval(function(){
+    //   console.log(1);
+    // }, 1000);
+
+    // 第2种写法
+    // 如果是字符串，需要加()
+    // setInterval('test()', 1000);
+
+    // 直接写函数名不需要加()，如果加了()就只能执行一次
+    // setInterval(test, 1000);
+
+    // function test(){
+    //   console.log(1);
+    // }
+
+
+    // 第3种写法
+    // 但是只能取一次值，在执行过程中不能改时间
+    // var time = 1000;
+    // setInterval(function(){
+    //   console.log(1);
+    // }, time);
+
+    var oH1 = document.getElementsByTagName('h1')[0],
+    // 找h1下面的span
+        oSpan = oH1.getElementsByTagName('span')[0],
+        sec = 0;
+
+    setInterval(function(){
+      sec++;
+      oSpan.innerHTML = sec;
+    },1000);
+
+
+  </script>
+</body>
+</html>

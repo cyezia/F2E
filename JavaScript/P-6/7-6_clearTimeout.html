@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>clearTimeout</title>
+</head>
+<body>
+  <p>5秒跳转百度</p>
+  <button>取消</button>
+  <script type="text/javascript">
+    var oPara = document.getElementsByTagName('p')[0],
+        oBtn = document.getElementsByTagName('button')[0],
+
+        t = setTimeout(function(){
+          location.href = 'http://www.baidu.com'
+        }, 5000);
+        
+        oBtn.onclick = function(){
+          clearTimeout(t);
+          oPara.innerHTML = '已取消跳转';
+        }
+
+    
+  </script>
+</body>
+</html>

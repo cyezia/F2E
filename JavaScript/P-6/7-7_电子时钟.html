@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>电子时钟</title>
+</head>
+<body>
+  <p></p>
+  <script type="text/javascript">
+    // 在原型上编程，写一个数组时钟
+    var p = document.getElementsByTagName('p')[0];
+
+    setInterval(function(){
+      p.innerHTML =new Date().getDateTime();
+    }, 1000);
+
+    Date.prototype.getDateTime = function(){
+      var year = this.getFullYear(),
+          mouth = this.getMonth() + 1,
+          day = this.getDate(),
+          hours = this.getHours(),
+          minutes = this.getMinutes(),
+          seconds = this.getSeconds();
+
+      // if(mouth < 10){
+      //   mouth = '0' + month;
+      // }
+
+      // if(day < 10){
+      //   day = '0' + day;
+      // }
+
+      // if(hours < 10){
+      //   hours = '0' + hours;
+      // }
+
+      // if(minutes < 10){
+      //   minutes = '0' + minutes;
+      // }
+
+      // if(seconds < 10){
+      //   seconds = '0' + seconds;
+      // }
+
+      function setZero(num){
+        if(num < 10){
+          num + '0' + num;
+        }
+        return num;
+      }
+      return year + '-' + setZero(mouth) + '-' + setZero(day) + '-' + setZero(hours) + ':' + setZero(minutes) + ':' + setZero(seconds);
+    }
+    
+  </script>
+</body>
+</html>

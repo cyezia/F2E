@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hasChildren判断父元素有没有元素节点</title>
+</head>
+<body>
+  <div>
+    <a href=""></a>
+    <p></p>
+  </div>
+  <script type="text/javascript">
+    // 在原型上编程
+    // hasChildren判断父元素有没有元素节点
+    var div =document.getElementsByTagName('div')[0];
+
+    // console.log(div.hasChildNodes());
+    Element.prototype.hasChildren = function(){
+      var children = this.children,
+          len = children.length,
+          item;
+
+      for(var i = 0; i < len; i++){
+        item = children[i];
+
+        if(item.nodeType === 1){
+          return true;
+        }
+      }
+      return false;
+    }
+    console.log(div.hasChildren());
+  </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>遍历任意一个父元素</title>
+</head>
+<body>
+  <div>
+    <!-- 我是注释 -->
+    <h1>我是标题标签</h1>
+    <p>我是段落标签</p>
+    <a href="">我是超链接标签</a>
+  </div>
+  <script type="text/javascript">
+    // 在原型上编程
+    // 遍历任意一个父元素，找到他的子元素节点
+    // 有数字参数 -> 某一个对应子元素
+    // 没有数字参数 -> 子元素节点的集合
+
+    var div = document.getElementsByTagName('div')[0];
+        // childNodes = div.childNodes;
+    // for(var i = 0; i < childNodes.length; i++){
+    //   // console.log(childNodes[i]);
+    //   if(childNodes[i] === 1){
+    //     console.log(childNodes[i]);
+    //   }
+    // }
+
+    Element.prototype.elemChildren = function(index){
+      var childNodes = this.childNodes,
+          len = childNodes.length,
+          item;
+
+      // 声明一个类数组
+      var temp = {
+        'length': 0,
+        'push': Array.prototype.push,
+        'splice': Array.prototype.splice
+      };    
+
+      for(var i = 0; i < len; i++){
+        // for循环的优化
+        item = childNodes[i];
+
+        if(item.nodeType === 1){
+          temp.push(item);
+        }
+      }
+      // console.log(index);
+      // return temp;
+      if(index !== undefined && typeof(index) !== 'number'){
+        return undefined;
+      }
+      
+      // if(index === undefined){
+      //   return temp;
+      // }else{
+      //   return temp[index];
+      // }
+      return index === undefined ? temp : temp[index];
+    }
+    console.log(div.elemChildren(1));
+  </script>
+</body>
+</html>

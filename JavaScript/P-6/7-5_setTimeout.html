@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setTimeout</title>
+</head>
+<body>
+  <button>获取更多数据</button>
+  <script type="text/javascript">
+    var oBtn = document.getElementsByTagName('button')[0];
+
+    oBtn.onclick = function(){
+      this.innerHTML = '加载中...';
+      // 此处把指向button的this保存到_self里，在下面用的时候依然是执行button的
+      var _self = this;
+      // 如何让this指向button
+      // _self 下划线告诉别人这是私有的变量
+      
+      setTimeout(function(){
+        // 此时的this指向window，因为setTimeout是window下的方法
+        // console.log(this);
+        // this.innerHTML = '获取更多数据';
+        // console.log(_self);
+        _self.innerHTML = '获取更多数据';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

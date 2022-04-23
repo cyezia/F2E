@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>创建文档碎片</title>
+</head>
+<body>
+  <ul id="list"></ul>
+
+  <script type="text/javascript">
+    // // document.createDocumentFragment() 创建文档碎片
+    // // 写标签名的时候以免和其它的混淆，会在前面加个o(object)，有意识的告诉我们这是一个DOM对象
+    // var oUl = document.getElementById('list');
+    // // 每循环一次都要计算一次几何位置 给浏览器的渲染引擎增加了负担
+    // // 因此在此处加一个不在节点树上的元素 先把循环出来的li放在这上面 最后再给ul  
+    // var oDiv = document.createElement('div');
+
+    // for(i = 0; i < 1000; i++){
+    //   var oLi = document.createElement('li');
+    //   oLi.innerHTML = i + '、这是第' + i + '个项目';
+    //   // oli.setAttribute('class', 'list-item');
+    //   oLi.className = 'list-item';
+    //   oUl.appendChild(oLi);
+    //   oDiv.appendChild(oLi);
+    // }
+
+    // oUl.appendChild(oDiv);
+
+    // 上述方法岁能解决但是多了一层DOM结构，因此可以创建文档碎片来解决这个问题
+    // document.createDocumentFragment() 创建文档碎片
+    // 写标签名的时候以免和其它的混淆，会在前面加个o(object)，有意识的告诉我们这是一个DOM对象
+    var oUl = document.getElementById('list');
+    // 每循环一次都要计算一次几何位置 给浏览器的渲染引擎增加了负担
+    // 因此在此处加一个不在节点树上的元素 先把循环出来的li放在这上面 最后再给ul  
+    // document.createDocumentFragment() 创建文档碎片
+    var oFrag = document.createDocumentFragment();
+
+    for(i = 0; i < 1000; i++){
+      var oLi = document.createElement('li');
+      oLi.innerHTML = i + '、这是第' + i + '个项目';
+      // oli.setAttribute('class', 'list-item');
+      oLi.className = 'list-item';
+      oUl.appendChild(oLi);
+      oFrag.appendChild(oLi);
+    }
+
+    oUl.appendChild(oFrag);
+  </script>
+</body>
+</html>

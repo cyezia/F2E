@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日期对象</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var date = new Date();
+    Date.prototype.getWeekDay = function(lang){
+      var day = this.getDay();
+
+      switch(day){
+        case 0: 
+          return lang === 'chs' ? '星期天' : 'Sunday';
+          break;
+        case 1: 
+          return lang === 'chs' ? '星期一' : 'Monday';
+          break;
+        case 2: 
+          return lang === 'chs' ? '星期二' : 'Tuesday';
+          break;
+        case 3: 
+          return lang === 'chs' ? '星期三' : 'Wednesday';
+          break;
+        case 4: 
+          return lang === 'chs' ? '星期四' : 'Thursday';
+          break;
+        case 5: 
+          return lang === 'chs' ? '星期五' : 'Friday';
+          break;
+        case 6: 
+          return lang === 'chs' ? '星期六' : 'Saturday';
+          break;
+      }
+    }
+    
+    date.getWeekDay();
+  </script>
+</body>
+</html>

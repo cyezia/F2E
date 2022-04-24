@@ -4,12 +4,49 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>作业2</title>
+  <title>倒计时</title>
 </head>
 <body>
+  <p></p>
   <script type="text/javascript">
     // 在原型上编程，写一个倒计时
-    
+    var oPara = document.getElementsByTagName('p')[0],
+        endTime = new Date(2022, 3, 28, 23, 59, 59).getTime(),
+        t = null;
+
+    t = setInterval(function(){
+      oPara.innerHTML = new Date().countDown(endTime, t);
+    }, 1000);
+
+    Date.prototype.countDown = function(endTime, timer){
+      var nowTime = this.getTime(),
+          leftTime = (endTime - nowTime) / 1000,
+          d, h, m, s;
+
+      if(leftTime >= 0){
+        d =Math.floor(leftTime / 60 / 60 / 24);
+        h =Math.floor(leftTime / 60 / 60 % 24);
+        m =Math.floor(leftTime / 60 % 60);
+        s =Math.floor(leftTime % 60);
+      }else{
+        clearInterval(timer);
+      }
+
+      if(h < 10){
+        h = '0' + h;
+      }
+
+      if(m < 10){
+        m = '0' + m;
+      }
+
+      if(s < 10){
+        s = '0' + s;
+      }
+      return d + '天' + h + '小时' + m + '分钟' + s + '秒';
+    }
+
+
   </script>
 </body>
 </html>

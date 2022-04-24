@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面高度兼容性问题</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function getScrollSize(){
+      if(document.body.scrollWidth){
+        return{
+          width: document.body.scrollWidth,
+          height: document.body.scrollHeight
+        }
+      }else{
+        return{
+          width: document.documentElement.scrollWidth,
+          height: document.documentElement.scrollHeight
+        }
+      }
+    }
+  </script>
+</body>
+</html>

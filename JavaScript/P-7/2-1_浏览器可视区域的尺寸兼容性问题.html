@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>浏览器可视区域的尺寸兼容性问题</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function getViewportSize(){
+      if(window.innerWidth){
+        return{
+          width: window.innerWidth,
+          height: window.innerHeight
+        }
+      }else{
+        if(document.compatMode === 'BackCompat'){
+          return{
+            width: document.body.clientWidth,
+            height: document.body.clientHeight
+          }
+        }else{
+          return{
+            width: document.documentElement.clientWidth,
+            height: document.documentElement.clientHeight
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>

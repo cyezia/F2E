@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS运动相关</title>
+  <style type="text/css">
+    .box{
+      width: 100px;
+      height: 100px;
+      padding: 10px;
+      background-color: green;
+    }
+
+    .box::after{
+      content: "";
+      display: block;
+      width: 50px;
+      height: 50px;
+      background-color: red;
+    }
+
+    .box.active::after{
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script type="text/javascript">
+
+    var div = document.getElementsByTagName('div')[0];
+
+    // 如何获取伪元素的宽高
+    // window.getComputedStyle(elem, null)  
+    console.log(window.getComputedStyle(div, 'after').width);
+    console.log(window.getComputedStyle(div, 'after').height);
+    
+    // 点击伪元素的背景颜色变成黑色
+    // 操作样式的话最好的方法是加类
+    // 当类名加上 active的时候 背景就会变成黑色
+    div.onclick = function(){
+      this.className += ' active';
+    }
+  </script>
+</body>
+</html>

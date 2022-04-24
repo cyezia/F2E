@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>下拉菜单</title>
+  <style type="text/css">
+    a{
+      text-decoration: none;
+    }
+
+    ul{
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    
+    .dropdown{
+      width: 200px;
+      height: 50px;
+      background-color: #000;
+    }
+
+    .dropdown .list{
+      display: none;
+    }
+
+    .dropdown:hover .list{
+      display: block;
+    }
+    
+    .dropdown a{
+      display: block;
+    }
+
+    .dropdown .main{
+      height: 100%;
+      text-align: center;
+      line-height: 50px;
+      color: #fff;
+    }
+
+    .dropdown .item{
+      height: 40px;
+      background-color: #333;
+    }
+
+    .dropdown .item:hover{
+      background-color: #000;
+    }
+
+    .dropdown .item a{
+      height: 100%;
+      color: #999;
+      text-align: center;
+      line-height: 40px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="dropdown">
+    <a href="javascript:;" class="main">下拉菜单</a>
+    <ul class="list">
+      <li class="item"><a href="">第1个项目</a></li>
+      <li class="item"><a href="">第2个项目</a></li>
+      <li class="item"><a href="">第3个项目</a></li>
+      <li class="item"><a href="">第4个项目</a></li>
+      <li class="item"><a href="">第5个项目</a></li>
+    </ul>
+  </div>
+  <script type="text/javascript">
+
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解除事件处理程序</title>
+  <style type="text/css">
+    button{
+      outline: none;
+      border: none;
+      width: 100px;
+      height: 30px;
+      background-color: orange;
+      color: #fff;
+    }
+
+    .got{
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <button>领取优惠券</button>
+  <script type="text/javascript">
+
+    var oBtn =document.getElementsByTagName('button')[0];
+
+    // oBtn.onclick = function(){
+    //   this.className = 'got';
+    //   this.innerHTML = '已领取';
+
+    //   this.onclick = null;
+    // }
+
+    // oBtn.addEventListener('click', test, false);
+    // 方法1
+    // 把匿名函数function()拿出来，以便于后续解除事件处理程序
+    // oBtn.addEventListener('click', function(){
+    //   this.className = 'got';
+    //   this.innerHTML = '已领取';
+    // }, false);
+    // function test(){
+    //   this.className = 'got';
+    //   this.innerHTML = '已领取';
+
+    //   this.removeEventLister('click', test, false);
+    // }
+
+    //方法2
+    oBtn.addEventListener('click', function(){
+      this.className = 'got';
+      this.innerHTML = '已领取';
+      //谁在运行就打印谁的引用 
+      // console.log(arguments.callee);
+
+      // 非严格模式下最好的解决办法
+      this.removeEventLister('click', arguments.callee, false);
+    }, false); 
+  </script>
+</body>
+</html>

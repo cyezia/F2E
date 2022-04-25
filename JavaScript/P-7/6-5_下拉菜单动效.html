@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>下拉菜单</title>
+  <title>下拉菜单动效</title>
   <style type="text/css">
     a{
       text-decoration: none;
@@ -39,7 +39,9 @@
       background-image: url(icons/arrow-top.png);
     }
     .dropdown .list{
-      display: none;
+      /* display: none; */
+      height: 0;
+      overflow: hidden;
     }
 
     /* .dropdown:hover .list{
@@ -88,16 +90,40 @@
   </div>
   <script type="text/javascript">
     var dropdown = document.getElementsByClassName('dropdown')[0],
-        oList = elemChildren(dropdown)[1];
+        oList = elemChildren(dropdown)[1],
+        timer = null,
+        listHeight = 0,
+        speed = 2;
 
     // onmouseenter 鼠标移入的事件
     dropdown.onmouseenter = function(){
-      oList.style.display = 'block';
+      // 先清除计时器 再重新开始 防抖动 避免进去卡抖 即还没展开完 就开始收 
+      clearInterval(timer);
+      // 加计时器 做动画效果
+      timer = setInterval(function(){
+        // 到200px停止 200px的时候列表已经展完
+        if(listHeight >= 200){
+          clearInterval(timer);
+        }else{
+          // getStyles(oList, 'height')打印出来当前的高度px值，所以需要parseInt转化成数字
+          listHeight = parseInt(getStyles(oList, 'height')) + speed;
+          oList.style.height = listHeight + 'px';
+        }
+      }, 1)
+      
       this.className += ' up';
     }
 
     dropdown.onmouseleave = function(){
-      oList.style.display = 'none';
+      clearInterval(timer);
+      timer = setInterval(function(){
+        if(listHeight <= 0){
+          clearInterval(timer);
+        }else{
+          listHeight = parseInt(getStyles(oList, 'height')) - speed;
+          oList.style.height = listHeight + 'px';
+        }
+      }, 1)
       this.className = 'dropdown'
     }
 
@@ -122,6 +148,21 @@
       return temp
     }
     
+    function getStyles(elem, prop){
+      if(window.getComputedStyle){
+        if(prop){
+          return window.getComputedStyle(elem, null)[prop];
+        }else{
+          return window.getComputedStyle(elem, null);
+        }
+      }else{
+        if(prop){
+          return elem.currentStyle[prop];
+        }else{
+          return elem.currentStyle;
+        }
+      }
+    }
   </script>
 </body>
 </html>

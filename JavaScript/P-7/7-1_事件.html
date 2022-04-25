@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件</title>
+  <style type="text/css">
+    
+  </style>
+</head>
+<body>
+  <div></div>
+  <script type="text/javascript">
+
+    var oDiv =document.getElementsByTagName('div')[0];
+
+    // 事件句柄的绑定形式
+    // 事件作用在谁身上 谁就是事件源
+    oDiv.onclick = function(){
+      this.style.backgroundColor = 'orange';
+    }
+  </script>
+</body>
+</html>

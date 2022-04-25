@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>阻止默认跳转</title>
+  <style type="text/css">
+    .link{
+      display: block;
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <a href="http://www.baidu.com" class="link" target="_blank">
+    <div class="inner">点击</div>
+  </a>
+  <script type="text/javascript">
+    // 点击文字的时候打印出我点击了，点击橙色区域跳转百度
+    var inner = document.getElementsByClassName('inner')[0];
+
+    inner.onclick = function(e){
+      var e = e || window.event;
+
+      e.preventDefault();
+      console.log('我点击了');
+    }
+  </script>
+</body>
+</html>

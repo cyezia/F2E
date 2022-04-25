@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>封装-添加事件的处理函数</title>
+  <style type="text/css">
+    
+  </style>
+</head>
+<body>
+  <button>点击</button>
+  <script type="text/javascript">
+
+    var oBtn =document.getElementsByTagName('button')[0];
+
+    addEvent(oBtn, 'click',function(){
+      console.log(1);
+    })
+
+    // fn 函数的简写
+    function addEvent(el, type, fn){
+      if(el.addEventListener){
+        el.addEventListener(type, fn, false);
+      }else if(el.attachEvent){
+        el.attachEvent('on' + type, function(){
+          // 改变this指向到el
+          fn.call(el);
+        });
+      }else{
+        // obj.name = obj['name']
+        // el.onclick = el['onclick']
+        el['on' + type] = fn;
+      }
+    }
+  </script>
+</body>
+</html>

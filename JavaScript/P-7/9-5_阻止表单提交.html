@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>阻止表单提交</title>
+  <style type="text/css">
+    .link{
+      display: block;
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <form action="">
+    <input type="text" name="content" />
+    <input type="submit" id="submit" value="提交" />
+  </form>
+  <script type="text/javascript">
+    // 阻止默认的跳转提交现象
+    var submit = document.getElementById('submit');
+
+    submit.onclick = function(){
+      var e = e || window.event;
+
+      e.preventDefault();
+      console.log('我提交了');
+    }
+    
+  </script>
+</body>
+</html>

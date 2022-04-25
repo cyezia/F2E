@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>封装-取消冒泡</title>
+  <style type="text/css">
+    .wrapper{
+      position: relative;
+      width: 300px;
+      height: 300px;
+      background-color: green;
+    }
+
+    .apply{
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      width: 80px;
+      height: 30px;
+      background-color: red;
+      color: #fff;
+      line-height: 30px;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="apply">立即申请</div>
+  </div>
+  <script type="text/javascript">
+    var wrapper = document.getElementsByClassName('wrapper')[0],
+        apply = document.getElementsByClassName('apply')[0];
+      
+    wrapper.addEventListener('click', function(){
+      console.log('详情'); //详情
+    }, false);
+
+    // 存放在事件的处理函数的参数里，但是IE8是存在window里，要用window.event访问
+    // 因此首先要判断 var e = e || window.event; 
+    // apply.addEventListener('click', function(e){ }
+  
+    // 取消冒泡 
+    // w3c：e.stopPropagation(); -> Event.prototype
+    // IE：e.cancelBubble = true;
+    apply.addEventListener('click', function(e){
+      var e = e || window.event;
+      cancelBubble(e);
+      console.log('已申请'); // 已申请 详情
+    }, false);
+    
+    // 封装
+    function cancelBubble(e){
+      var e = e || window.event;
+
+      if(e.stopPropagetion){
+        e.stopPropagetion();
+      }else{
+        e.cancelBubble = true;
+      }
+    }
+  </script>
+</body>
+</html>

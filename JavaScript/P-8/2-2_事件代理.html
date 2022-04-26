@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件代理</title>
+  <style type="text/css">
+    
+  </style>
+</head>
+<body>
+  <button>增加li</button>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+  </ul>
+  <script type="text/javascript">
+    var oList = document.getElementsByTagName('ul')[0],
+        oLi = oList.getElementsByTagName('li'),
+        oBtn = document.getElementsByTagName('button')[0],
+        len = oLi.length,
+        item;
+
+    // 事件委托 事件代理
+    oList.onclick = function(e){
+      var e = e || window.event,
+          tar = e.target || e.srcElement;
+
+      // console.log(tar);
+      // console.log(tar.innerText);
+
+      // 拿li的下标
+      // 方法1
+      // for(var i = 0; i < len; i++){
+      //   item = oLi[i];
+
+      //   if(tar === item){
+      //     console.log(i);
+      //   }
+      // }
+
+      // Array.prototype.indexOf 拿数组的下标
+      // 类数组是不能用indexOf的
+      // 方法2
+      // 继承Array.prototype.index，然后.call把this指向改变成oLi，再把indeOf需要的参数传进来
+      // 第一个参数是这个元素的集合，第二个参数是当前点击的/事件触发的元素
+      // Array.prototype.indexOf.call(DON对象集合, 当前事件源);
+      var index = Array.prototype.indexOf.call(oLi, tar);
+      console.log(index);
+    }
+
+    oBtn.onclick = function(){
+      var li = document.createElement('li');
+      li.innerText = oLi.length + 1;
+      oList.appendChild(li);
+    }
+
+    // var str = 'asdfghjkl';
+    // var arr = [1, 2, 3, 4, 5];
+    // console.log(str.indexOf('f'));
+    // console.log(arr.indexOf(4));
+  </script>
+</body>
+</html>

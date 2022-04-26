@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拖拽函数封装</title>
+  <style type="text/css">
+    .box{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script type="text/javascript" src="../utils.js"></script>
+  <script type="text/javascript">
+    var box = document.getElementsByClassName('box')[0],
+        x,
+        y;
+    
+    // mousedown mouseup mousemove
+
+    // document.onmousemove = function(e){
+    //   var e = e || window.event,
+    //       page = pagePos(e);
+
+    //   box.style.left = page.X + 'px';
+    //   box.style.top = page.Y + 'px';
+    // }
+
+    box.onmousedown = function(e){
+      var e = e || window.event;
+      
+      x = pagePos(e).X - getStyles(box, 'left');
+      y = pagePos(e).Y - getStyles(box, 'top');
+
+      // console.log(x, y);
+      
+      document.onmousemove = function(e){
+        // var e = e || window.event,
+        //     page = pagePos(e);
+
+        // box.style.left = page.X + 'px';
+        // box.style.top = page.Y + 'px';
+        var e = e || window.event;
+
+        box.style.left = pagePos(e).X - x + 'px';
+        box.style.top = pagePos(e).Y - y + 'px';
+      }
+
+      document.onmouseup = function(e){
+        // 鼠标抬起时把onmousemove事件处理函数清空
+        document.onmousemove = null;
+        document.onmouseup = null;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>封装-鼠标行为兼容性</title>
+  <style type="text/css">
+    .box{
+      position: absolute;
+      top: 200px;
+      left: 200px;
+      width: 100px;
+      height: 100px;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script type="text/javascript" src="../utils.js"></script>
+  <script type="text/javascript">
+    var box = document.getElementsByClassName('box')[0];
+
+    document.onclick = function(e){
+      var e = e || window.event;
+
+      console.log(e.pageY, pagePos(e).Y);
+    }
+
+    // 封装
+    function pagePos(e){
+      var sLeft = getScrollOffset().left,
+          sTop = getScrollOffset().top,
+          // 获取文档偏移 IE8以上有可能是undefined 如果是undefined直接取0，就是没有偏移
+          cLeft = document.documentElement.clientLeft || 0,
+          cTop = document.documentElement.clientTop || 0;
+
+      return{
+        X: e.clientX + sLeft - cLeft,
+        Y: e.clientY + sTop - cTop
+      }
+    }
+  </script>
+</body>
+</html>

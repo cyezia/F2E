@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>重写-filter</title>
+  <style type="text/css">
+  
+  </style>
+</head>
+<body>
+  
+  <script type="text/javascript">
+    var fn = function(elem, index, array){
+      console.log(this);
+      return elem.is_free === '0';
+    }
+
+    Array.prototype.myFilter = function(fn){
+      var arr = this,
+          len = arr.length,
+          arg2 = arguments[1] || window,
+          nArr = [];
+
+      for(var i = 0; i < len; i++){
+        // 如果是true nArr.push(arr[i])  如果是false 什么都不干  
+        fn.apply(arg2, [arr[i], i, arr]) ? nArr.push(arr[i]) : '';
+      }
+      return nArr;
+    }
+
+    // var newArr = data.myFilter(fn, {name: 'test'});
+  </script>
+</body>
+</html>

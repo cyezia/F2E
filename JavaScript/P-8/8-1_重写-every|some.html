@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>重写-every</title>
+  <style type="text/css">
+  
+  </style>
+</head>
+<body>
+  
+  <script type="text/javascript">
+    
+    Array.prototype.myEvery = function(fn){
+      var arr = this,
+          len = arr.length,
+          arg2 = arguments[1] || window,
+          res = true;
+
+      for(var i = 0; i < len; i++){
+        if(!fn.apply(arg2, [arr[i], i, arr])){
+          res = false;
+          break;
+        }
+      }
+      return res;
+    }
+
+    // var res2 = data.myEvery(function(elem, index, array){
+    //   return elem.is_free == '0';
+    // },{name: 'test'});
+    Array.prototype.mySome = function(fn){
+      var arr = this,
+          len = arr.length,
+          arg2 = arguments[1] || window,
+          res = false;
+
+      for(var i = 0; i < len; i++){
+        if(fn.apply(arg2, [arr[i], i, arr])){
+          res = true;
+          break;
+        }
+      }
+      return res;
+    }
+  </script>
+</body>
+</html>

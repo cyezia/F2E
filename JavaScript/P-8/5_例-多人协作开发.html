@@ -13,20 +13,21 @@
   <input type="text" id="num1" />
   <input type="text" id="num2" />
   <div class="btn-group">
-    <button>+</button>
-    <button>-</button>
-    <button>*</button>
-    <button>/</button>
+    <button data-sign="plus">+</button>
+    <button data-sign="minus">-</button>
+    <button data-sign="mul">*</button>
+    <button data-sign="div">/</button>
   </div>
   
   <script type="text/javascript" src="../utils.js"></script>
   <script type="text/javascript" src="../P-8/5-1_example.js"></script>
   <script type="text/javascript">
-    new Test({
+    var test = new Test({
       num1: document.getElementById('num1'),
       num2: document.getElementById('num2'),
-      btnGroup: 'btn-group'
-    }).init();
+      btnGroup: document.getElementsByClassName('btn-group')[0]
+    });
+    test.init();
   </script>
 </body>
 </html>

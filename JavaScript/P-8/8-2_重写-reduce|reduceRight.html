@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>重写-reduce|reduceRight</title>
+  <style type="text/css">
+  
+  </style>
+</head>
+<body>
+  
+  <script type="text/javascript" src="../utils.js"></script>
+  <script type="text/javascript">
+
+    var initialValue = [];
+    var nArr = data.reduce(function(prev, elem, index, arr){
+      // 必须return prev; 否则它永远是undefined
+      return prev;
+    }, initialValue);
+
+
+    Array.prototype.myReduce = function(fn, initialValue){
+      var arr = this,
+          len = arr.length,
+          arg2 = arguments[1] || window,
+          item;
+
+      for(var i = 0; i < len; i++){
+        
+        initialValue = fn.apply(arg2, [initialValue, arr[i], i, arr]);
+      }
+      return initialValue;
+    }
+
+
+    Array.prototype.myReduceRight = function(fn, initialValue){
+      var arr = this,
+          len = arr.length,
+          arg2 = arguments[1] || window,
+          item;
+
+      for(var i = len - 1; i >= 0; i--){
+        
+        initialValue = fn.apply(arg2, [initialValue, arr[i], i, arr]);
+      }
+      return initialValue;
+    }
+  
+  </script>
+</body>
+</html>

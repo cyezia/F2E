@@ -20,4 +20,18 @@
 
 - 会返回一个布尔值
 
-## reduce
+## reduce 归纳函数
+
+- [].reduce(function(prev, elem, index, arr){}, initialValue);
+
+  第二个参数叫initialValue（初始值），是必填项
+
+  prev实际上是没有值的，它的值是从第二个参数initialValue来的，initialValue填什么prev就是什么
+
+  pre === initialValue -> true
+
+- 从下标为0开始遍历
+
+## reduceRight
+
+- 就是reduce倒过来，从下标为长度减1开始遍历

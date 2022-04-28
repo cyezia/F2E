@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>例</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var arr = [];
+    for(var i = 0; i < 10; i++){
+      // i = 10
+      arr[i] = function(){
+        console.log(i);
+      // 函数还没有执行
+      }
+    }
+
+    for(var i = 0; i < 10; i++){
+      arr[i]();
+    }
+    // 输出0 1 2 3 4 5 6 7 8 9
+  </script>
+</body>
+</html>

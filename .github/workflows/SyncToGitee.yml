@@ -15,7 +15,7 @@ jobs:
       uses: Yikun/hub-mirror-action@master 
       with:
         src: github/cyezia 
-        dst: gitee/yezi 
+        dst: gitee/cyezia 
         dst_key: ${{ secrets.DXSECRETRSA }}  
         dst_token:  ${{ secrets.GITEE_TOKEN }} 
         static_list: "F2E" 

@@ -39,35 +39,36 @@ function Square(props) {
 
 class Board extends React.Component {
   // 添加构造函数，并将Board组件的初始状态设置为长度为9的空值数组
-  constructor(props) {
-    super(props);
-    this.state = {
-      squares: Array(9).fill(null),
-      // 设置X为默认的先手棋
-      xIsNext: true,
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     squares: Array(9).fill(null),
+  //     // 设置X为默认的先手棋
+  //     xIsNext: true,
+  //   };
+  // }
 
   // 添加handleClick方法
-  handleClick(i){
-    // 调用slice()方法创建了squares数组的一个副本
-    const squares = this.state.squares.slice();
-    // 棋子没移动一步，xIsNext的布尔值都会反转，实现X O轮流落子的效果
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
-    this.setState({
-      squares: squares,
-      xIsNext: !this.state.xIsNext,
-    });
-  }
+  // 移到game组件中
+  // handleClick(i){
+  //   // 调用slice()方法创建了squares数组的一个副本
+  //   const squares = this.state.squares.slice();
+  //   // 棋子每移动一步，xIsNext的布尔值都会反转，实现X O轮流落子的效果
+  //   squares[i] = this.state.xIsNext ? 'X' : 'O';
+  //   this.setState({
+  //     squares: squares,
+  //     xIsNext: !this.state.xIsNext,
+  //   });
+  // }
 
   // 把state的值保存在Board组件中
   renderSquare(i) {
     // 最外层加小括号，这样JavaScript解析的时候就不会在return的后面自动插入一个分号，从而破坏代码结构了
     return (
     <Square 
-      value={this.state.squares[i]} 
+      value={this.props.squares[i]} 
       // Board组件向Square组件传递一个函数，当Square被点击的时候，这个函数就会被调用
-      onClick={() => this.handleClick(i)}
+      onClick={() => this.props.onClick(i)}
     />
     );
   }
@@ -77,17 +78,18 @@ class Board extends React.Component {
     // const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
 
     // 调用calculateWinner(squeras)检测是否有玩家胜出
-    const winner = calculateWinner(this.state.squares);
-    let status;
-    if(winner) {
-      status = 'Winner: ' + winner;
-    }else{
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-    }
+    // 在game组件中渲染了游戏状态，此处不再需要
+    // const winner = calculateWinner(this.state.squares);
+    // let status;
+    // if(winner) {
+    //   status = 'Winner: ' + winner;
+    // }else{
+    //   status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    // }
 
     return(
       <div>
-        <div className="status">{status}</div>
+        {/* <div className="status">{status}</div> */}
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -109,15 +111,81 @@ class Board extends React.Component {
 }
 
 class Game extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      history: [
+        {
+          squares: Array(9).fill(null),
+        }
+      ],
+      stepNumber: 0,
+      xIsNext: true,
+    };
+  }
+
+  handleClick(i){
+    const history = this.state.history.slice(0, this.state.stepNumber + 1);
+    const current = history[history.length - 1];
+
+    // 调用slice()方法创建了squares数组的一个副本
+    const squares = current.squares.slice();
+    if (calculateWinner(squares) || squares[i]) {
+      return;
+    }
+    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    this.setState({
+      history: history.concat([
+        {
+          squares: squares,
+        }
+      ]),
+      stepNumber: history.length,
+      xIsNext: !this.state.xIsNext,
+    });
+  }
+
+  jumpTo(step) {
+    this.setState({
+      stepNumber: step,
+      xIsNext: (step % 2) === 0
+    });
+  }
+
   render() {
+    const history = this.state.history;
+    const current = history[this.state.stepNumber];
+    const winner = calculateWinner(current.squares);
+
+    // 调用map()方法 -> 把某数组映射为另一个数组
+    const moves = history.map((step, move) => {
+      const desc = move ?
+        'Go to move #' + move :
+        'Go to game start';
+      return (
+        <li key={move}>
+          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+        </li>
+      );
+    });
+    let status;
+    if (winner) {
+      status = 'Winner: ' + winner;
+    } else {
+      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    }
+
     return (
       <div className="game">
         <div className="game-board">
-        <Board />
+        <Board 
+          squares = {current.squares}
+          onClick = {i => this.handleClick(i)}
+        />
         </div>
         <div className="game-info">
-          <div>{/* status */}</div>
-          <div>{/* TODO */}</div>
+          <div>{status}</div>
+          <div>{moves}</div>
         </div>
       </div>
     );

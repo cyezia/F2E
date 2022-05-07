@@ -161,3 +161,41 @@
 - componentWillUnmount()
 
   会在组件卸载或销毁之前直接调用，在此方法中执行必要的清除操作
+
+## React术语词汇表
+
+- 单页面应用（single-page application），是一个应用程序，它可以加载单个HTML页面，以及运行应用程序所需的所有必要资源，与页面或后续页面的任何交互，都不再需要往返server加载资源，即页面不会重新加载
+
+- Compiler 编译器
+
+  常用的：Babel
+
+- Bundler 打包工具
+
+  常用的：webpack Browserify
+
+- Package 管理工具，帮助管理项目依赖的工具
+
+  常用的：npm yarn
+
+- CDN 代表内容分发网络（Content Delivery Network），它会通过一个遍布全球的服务器网络来分发缓存的静态内容
+
+- JSX 是一个JavaScript语法扩展
+
+  最终会被编译为React.createElement()函数调用
+
+- 元素 是构成React应用的基础砖块，描述了在屏幕上想看到的内容
+
+- 组件 是可以复用的小的代码片段，返回要在页面中渲染的React元素
+
+- props 是React组件的输入，是从父组件向下传递给子组件的数据（只读）
+
+- props.children 包含组件的开始标签和结束标签之间的内容
+
+- state 当组件中的一些数据在某些时刻发生变化时，就需要用state来跟踪状态
+
+  与props之间最重要的区别：props由父组件传入，而state由组件本身管理，组件不能修改props，但能修改state
+
+- 生命周期方法 用于在组件不同阶段执行自定义功能
+
+  在组件被创建并插入到DOM时（即挂载中阶段(mounting)），组件更新时，组件取消挂载或从DOM中删除，都有可以使用的生命周期方法

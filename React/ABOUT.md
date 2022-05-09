@@ -225,3 +225,63 @@
 ### 自定义Hook
 
 - 自定义Hook是一个函数，其名称以use开头，函数内部可以调用其他的Hook
+
+### Hook API
+
+- useState 返回一个state，以及更新state的函数
+
+  const [state, setState] = useState(initialState);
+
+  在初始渲染期间，返回的状态（state）与传入的第一个参数（initialState）值相同
+
+  setState函数用于更新state，它接收一个新的state值并将组件的一次重新渲染加入队列
+
+- useEffect 该Hook接收一个包含命令式、且可能有副作用代码的函数，使用useEffect完成副作用操作
+
+  useEffect(didUpdate);
+
+- useContext
+
+  接收一个context对象（React.createContext的返回值）并返回该context的当前值 当前的context值由上层组件中距离当前组件最近的<MyContext.Provider>的value prop决定
+
+  const value = useContext(MyContext); 参数必须是context对象本身
+
+### 额外的Hook
+
+- useReducer useState的替代方案，接收一个形如(state, action) => newState的reducer，并返回当前的state以及与其配套的dispatch方法
+
+  const [state, dispatch] = useReducer(reducer, initialArg, init);
+
+- useCallback 返回一个memoized回调函数
+
+- useMemo 返回一个memoized值
+  
+  const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+
+- useRef 返回一个可变的ref对象，其.current属性被初始化为传入的参数（initialValue）,返回的ref对象在组件的整个生命周期内持续存在
+
+- useImperativeHandle 可以让在使用ref时自定义暴露给父组件的实例值
+
+  应当与forwardRef一起使用
+
+- useLayoutEffect 其函数签名与useEffect相同，但它在所有的DOM变更之后同步调用effect，可以用它来读取DOM布局并同步触发重渲染
+
+- useDebugValue 可用于在React开发者工具中显示自定义的hook的标签
+
+### 如何实现shouldComponentUpdate
+
+- 用React.memo包裹一个组件来对它的props进行浅比较
+
+  const Button = React.memo((props) => { });
+
+  React.memo等效于PureComponent，但它只比较props，如果函数返回true，就会跳过更新
+
+  React.memo不比较state，因为没有单一的state对象可供比较
+
+### 如何记忆计算结果
+
+- useMemo Hook允许通过记住上一次计算结果的方式在多次渲染的之间缓存计算结果
+
+  const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+
+  这段代码会调用computeExpensiveValue(a, b)，但如果依赖数组[a, b]自上次赋值以来就没改变过，useMemo会跳过二次调用，只是简单的复用它上一次返回的值

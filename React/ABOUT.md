@@ -24,6 +24,82 @@
 
 - 使用ES6的class关键字创建的React组件，组件中的方法遵循与常规ES6 class相同的语法规则，这意味着这些方法不会自动绑定this到这个组件实例，需要在constructor中显式地调用.bind(this)
 
+## 组件&props
+
+- 函数组件
+
+  function Welcome(props) { return ...}
+
+- class组件
+
+  class Welcome extends Reacr.Component { render() { return...} }
+
+- props：当React元素为用户自定义组件时，它会将JSX所接收的属性（attributes）以及子组件（children）转换为单个对象传递给组件，这个对象被称之为props
+
+  props是只读的
+
+## State&生命周期
+
+- state与props类似，但是state是私有的，并且完全受控于当前组件
+
+- 当Clock组件第一次被渲染到DOM中的时候，就为其设置一个计时器，这在React中被称为挂载（mount）
+  
+  componentDidMount() {}
+
+- 同时，当DOM中的Clock组件被删除的时候，应该清除计时器，这在React中被称为卸载（unmount）
+
+  componentWillUnmount() {}
+
+- 使用state
+
+  1、不要直接修改state，而是应该使用setState()
+
+  2、State的更新可能是异步的
+
+  3、State的更新会被合并
+
+- 数据时向下流动的
+
+  不管是父组件或是子组件都无法知道某个组件是有状态的还是无状态的，并且他们也不关心它是函数组件还是class组件，这就是为什么称state为局部的或是封装的的原因，除了拥有并设置它的组件，其它组件都无法访问，组件可以选择把它的state作为props向下传递到它的子组件中
+
+## 事件处理
+
+- React事件的命名采用小驼峰式（camelCase），而不是纯小写
+
+- 使用JSX语法时需要传入一个函数作为事件处理函数，而不是一个字符串
+
+- 必须显示的使用preventDefault阻止默认事件
+
+## 条件渲染
+
+- React中的条件渲染和JavaScript中的一样，使用JavaScript运算符if或者条件运算符去创建元素来表现当前的状态，然后让React更加它们来更新UI
+
+- 与运算符&& 通过花括号包裹代码，可以在JSX中嵌入表达式
+
+- 三目运算符 condition ? true : fales
+
+## 列表&key
+
+- 渲染多个组件 可以通过使用{}在JSX内构建一个元素集合
+
+- 基础列表组件 创建元素时必须包括一个特殊的key属性
+
+- key 帮助React元素识别哪些元素改变了，比如被添加或删除，因此应当给数组中每一个元素赋予一个确定的标识
+
+  一个元素的key最好是这个元素列表中拥有的独一无二的字符串，通常我们使用数据中的id作为元素的key
+
+  当元素没有确定的id的时候，万不得已可以使用元素索引index作为key
+
+- key值在兄弟节点之间必须唯一，不需要是全局唯一的
+
+## 表单
+
+- 受控组件
+
+  在HTML中，表单元素（如input textarea select）通常自己维护state，并根据用户输入进行更新，而在React中，可变状态（mutable state）通常保存在组件的state属性中，并且只能够通过使用setState()来更新
+
+  渲染表单的React组件还控制着用户输入过程表单发生的操作，被React以这种方式控制取值的表单输入元素就叫做受控组件
+
 ## API
 
 - React.Component 是使用ES6 classes方法定义React组件的基类

@@ -24,6 +24,8 @@
 
 - 使用ES6的class关键字创建的React组件，组件中的方法遵循与常规ES6 class相同的语法规则，这意味着这些方法不会自动绑定this到这个组件实例，需要在constructor中显式地调用.bind(this)
 
+- React.createElement('h1', {id: 'title'}, 'Hello, React') 标签名、标签属性、标签内容
+
 ## 组件&props
 
 - 函数组件

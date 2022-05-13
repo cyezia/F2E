@@ -1,3 +1,4 @@
+/* base 通用样式 */
 body {
   background: #fff;
 }
@@ -30,20 +31,14 @@ body {
   outline: none;
 }
 
-.todo-footer label {
-  display: inline-block;
-  margin-right: 20px;
-  cursor: pointer;
+.todo-container {
+  width: 600px;
+  margin: 0 auto;
 }
 
-.todo-footer label input {
-  position: relative;
-  top: -1px;
-  vertical-align: middle;
-  margin-right: 5px;
+.todo-container .todo-wrap {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
-.todo-footer button {
-  float: right;
-  margin-top: 5px;
-}

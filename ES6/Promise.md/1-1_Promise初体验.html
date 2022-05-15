@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise初体验</title>
+</head>
+<body>
+  <!-- 点击抽奖 2秒后显示是否中奖（30%中奖率） -->
+  <div>
+    <h1>Promise初体验</h1>
+    <button id="btn">点击抽奖</button>
+  </div>
+  <script type="text/javascript">
+    // 生成随机数
+    function rand(m, n) {
+      return Math.ceil(Math.random() * (n - m + 1) + m - 1);
+    }
+
+    // 获取元素对象
+    const btn = document.getElementById('btn');
+
+    // 绑定单击事件
+    btn.addEventListener('click', function() {
+      // // 添加定时器
+      // setTimeout(() => {
+      //   // 30%中奖率 1-100 1-30是中奖
+      //   // 获取1-100的一个随机数
+      //   let n = rand(1, 100);
+      //   if(n <= 30) {
+      //     alert('恭喜，您中奖了！');
+      //   }else{
+      //     alert('再接再厉');
+      //   }
+      // }, 2000)
+
+
+      // promise形式实现
+      // resolve 解决 函数类型的数据 成功时调用
+      // reject 拒绝 函数类型的数据 失败时调用
+      const p = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          let n = rand(1, 100);
+          if(n <= 30){
+            resolve(n);  // 将promise的状态设置为成功
+          }else{
+            reject(n);   // 将promise的状态设置为失败
+          }
+        }, 2000)
+      });
+
+      // 调用then方法 接收2个参数 第一个是成功时的回调 第二个是失败时的回调 
+      p.then((value) => {
+        alert('恭喜，您中奖了！您的中奖号码是' + value);
+      }, (reason) => {
+        alert('再接再厉，您的号码是' + reason);
+      })
+    });
+
+    
+  </script>
+</body>
+</html>

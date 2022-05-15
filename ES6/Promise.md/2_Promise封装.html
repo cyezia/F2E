@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise封装</title>
+  <script src="./2_Promise封装.js"></script>
+</head>
+<body>
+  <script type="text/javascript">
+    let p = new Promise((resolve, reject) => {
+      // resolve('OK');
+      // reject("error");
+      // 抛出异常
+      throw "error";
+    });
+    p.then(value => {
+      console.log(value);
+    }, reason => {
+      console.warn(reason); //黄色警告输出
+    });
+  </script>
+</body>
+</html>

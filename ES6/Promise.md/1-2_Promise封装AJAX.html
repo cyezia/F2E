@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise封装AJAX</title>
+</head>
+<body>
+  <div>
+    <h2>Promise封装AJAX</h2>
+    <button id="btn">点击发送AJAX</button>
+  </div>
+  <script type="text/javascript">
+    // 获取元素对象
+    const btn = document.getElementById('btn');
+    btn.addEventListener('click', function() {
+      // // 1、创建对象
+      // const xhr = new XMLHttpRequest();
+      // // 2、初始化
+      // xhr.open('GET', 'https://api.apiopen.top/getJoke');
+      // // 3、发送
+      // xhr.send();
+      // // 4、响应结果
+      // xhr.onreadystatechange = function() {
+      //   if(xhr.readyState === 4) {
+      //     // 判断响应状态码 2xx
+      //     if(xhr.status >= 200 && xhr.status < 300) {
+      //       // 控制台输出响应体
+      //       console.log(xhr.response);
+      //     }else{
+      //       // 控制台输出响应状态码
+      //       console.log(xhr.status);
+      //     }
+      //   }
+      // }
+
+
+      // promise实现
+      const p = new Promise((resolve, reject) => {
+        // 1、创建对象
+        const xhr = new XMLHttpRequest();
+        // 2、初始化
+        xhr.open('GET', 'https://api.apiopen.top/getJoke');
+        // 3、发送
+        xhr.send();
+        // 4、响应结果
+        xhr.onreadystatechange = function() {
+          if(xhr.readyState === 4) {
+            // 判断响应状态码 2xx
+            if(xhr.status >= 200 && xhr.status < 300) {
+              // 控制台输出响应体
+              resolve(xhr.response);
+            }else{
+              // 控制台输出响应状态码
+              reject(xhr.states);
+            }
+          }
+        }
+      });
+
+      // 调用then方法
+      p.then(value => {
+        console.log(value);
+      }, reason => {
+        console.log(reason);
+      })
+    });
+
+  </script>
+</body>
+</html>

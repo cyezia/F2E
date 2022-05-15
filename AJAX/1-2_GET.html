@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="">
+  <title>AJAX GET请求</title>
+  <style type="text/css">
+    #result {
+      width: 200px;
+      height: 100px;
+      border: 1px solid #90b;
+    }
+  </style>
+</head>
+<body>
+  <button>点击发送请求</button>
+  <div id="result"></div>
+  <script type="text/javascript">
+
+    // 获取button元素
+    const btn = document.getElementsByTagName('button')[0];
+    const result = document.getElementById('result');
+
+    // 绑定事件
+    btn.onclick = function() {
+
+      // 1、创建对象
+      const xhr = new XMLHttpRequest();
+
+      // 2、初始化 设置请求方法和url
+      xhr.open('GET', 'http://127.0.0.1:8000/server?a=100&b==200');
+
+      // AJAX-IE缓存问题解决
+      // xhr.open('GET', 'http://127.0.0.1:8000/server?a=100&b==200' + Data.now());
+
+      // 3、发送
+      xhr.send();
+
+      // 4、事件绑定 处理服务端返回的结果
+      // on 当什么什么的时候
+      // readystate 是xhr对象中的属性，表示状态 0 1 2 3 4 
+      // 0 表示未初始化 
+      // 1 表示open方法以及调用完毕 
+      // 2 表示send方法已经调用完毕 
+      // 3 表示服务端返回了部分结果 
+      // 4 表示服务端返回了所有的结果
+      // change 改变
+      xhr.onreadystatechange = function() {
+
+        // 判断 服务端返回了所有的结果
+        if(xhr.readystate === 4) {
+          // 判断 响应的状态码 200 404 403 401 500
+          // 2xx 都代表成功
+          if(xhr.status >= 200 && xhr.status <300) {
+            // 处理结果 行 头 空行 体
+            // 1、响应行
+            // console.log(xhr.status); // 状态码
+            // console.lgo(xhr.statusText) // 状态字符串
+            // console.log(xhr.getAllResponseHeaders()); //所有响应头
+            // console.log(xhr.response); // 响应体
+
+            // 设置result文件
+            result.innerHTML = xhr.response;
+          }
+        }
+      };
+    }
+  </script>
+</body>
+</html>

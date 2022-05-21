@@ -30,11 +30,11 @@
 
 - 函数组件
 
-  function Welcome(props) { return ...}
+      function Welcome(props) { return ...}
 
 - class组件
 
-  class Welcome extends Reacr.Component { render() { return...} }
+      class Welcome extends Reacr.Component { render() { return...} }
 
 - props：当React元素为用户自定义组件时，它会将JSX所接收的属性（attributes）以及子组件（children）转换为单个对象传递给组件，这个对象被称之为props
 
@@ -46,11 +46,11 @@
 
 - 当Clock组件第一次被渲染到DOM中的时候，就为其设置一个计时器，这在React中被称为挂载（mount）
   
-  componentDidMount() {}
+      componentDidMount() {}
 
 - 同时，当DOM中的Clock组件被删除的时候，应该清除计时器，这在React中被称为卸载（unmount）
 
-  componentWillUnmount() {}
+      componentWillUnmount() {}
 
 - 使用state
 
@@ -308,7 +308,7 @@
 
 - useState 返回一个state，以及更新state的函数
 
-  const [state, setState] = useState(initialState);
+      const [state, setState] = useState(initialState);
 
   在初始渲染期间，返回的状态（state）与传入的第一个参数（initialState）值相同
 
@@ -316,25 +316,25 @@
 
 - useEffect 该Hook接收一个包含命令式、且可能有副作用代码的函数，使用useEffect完成副作用操作
 
-  useEffect(didUpdate);
+      useEffect(didUpdate);
 
 - useContext
 
   接收一个context对象（React.createContext的返回值）并返回该context的当前值 当前的context值由上层组件中距离当前组件最近的<MyContext.Provider>的value prop决定
 
-  const value = useContext(MyContext); 参数必须是context对象本身
+      const value = useContext(MyContext); 参数必须是context对象本身
 
 ### 额外的Hook
 
 - useReducer useState的替代方案，接收一个形如(state, action) => newState的reducer，并返回当前的state以及与其配套的dispatch方法
 
-  const [state, dispatch] = useReducer(reducer, initialArg, init);
+      const [state, dispatch] = useReducer(reducer, initialArg, init);
 
 - useCallback 返回一个memoized回调函数
 
 - useMemo 返回一个memoized值
   
-  const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+      const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 
 - useRef 返回一个可变的ref对象，其.current属性被初始化为传入的参数（initialValue）,返回的ref对象在组件的整个生命周期内持续存在
 
@@ -350,7 +350,7 @@
 
 - 用React.memo包裹一个组件来对它的props进行浅比较
 
-  const Button = React.memo((props) => { });
+      const Button = React.memo((props) => { });
 
   React.memo等效于PureComponent，但它只比较props，如果函数返回true，就会跳过更新
 
@@ -360,6 +360,6 @@
 
 - useMemo Hook允许通过记住上一次计算结果的方式在多次渲染的之间缓存计算结果
 
-  const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+      const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 
   这段代码会调用computeExpensiveValue(a, b)，但如果依赖数组[a, b]自上次赋值以来就没改变过，useMemo会跳过二次调用，只是简单的复用它上一次返回的值

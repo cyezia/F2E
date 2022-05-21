@@ -47,3 +47,19 @@
       2、import reducer from './reducers';
 
       3、const store = createStore(reducer);
+
+## react-redux
+
+- 所有的UI组件（外层）都应该包裹一个容器组件，它们是父子关系
+
+- 容器组件是真正的和redux打交道的，里面可以随意的使用redux的api
+
+- UI组件中不能使用任何redux的api
+
+- 容器组件会传给UI组件
+
+  1、redux中所保存的状态
+
+  2、用于操作状态的方法
+
+- 备注：容器给UI传递状态、操作状态的方法，均通过props传递

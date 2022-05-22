@@ -69,3 +69,42 @@
       2、为Person组件编写：reducer、action，配置constant常量
       3、重点：Person的reducer和Count的reducer要使用combineReducers进行合并，合并后的总状态是一个对象
       4、交给store的是总reducer，最后注意在组件中提取出状态的时候，要记得取到位
+
+## 纯函数和高阶函数
+
+### 纯函数
+
+- 一类特别的函数：只要是同样的输入（实参），必定得到同样的输出（返回）
+
+- 必定遵守以下一些约束
+
+      1、不得修改参数数据
+      2、不会产生任何副作用，例如网络请求，输入和输出设备
+      3、不能调用Date.now()或者Math.random()等不纯的方法
+
+- redux的reducer函数必须是一个纯函数
+
+### 高阶函数
+
+- 理解：
+
+      1、情况1：参数是函数
+      2、情况2：返回是函数
+
+- 常见的高阶函数
+
+      1、定时器设置函数
+      2、数组的forEach()、map()、filter()、reduce()、find()、bind()
+      3、promise
+
+## 开发者工具的使用
+
+      1、npm add redux-devtools-extension
+      2、store中进行配置
+          import {composeWithDevTools} from 'redux-devtools-extension'
+          const store = createStore(allReducer, composeWithDevTools(applyMiddleware(thunk)));
+
+## 最终版
+
+      1、所有变量名字要规范，尽量触发对象的简写形式
+      2、reducers文件夹中，编写index.js专门用于汇总并暴露所有的reducer
